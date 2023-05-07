@@ -18,10 +18,22 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer base {
+  :root {
+    --color-one: 72, 88, 45;
+    --color-two: 115, 141, 72;
+    --color-three: 144, 177, 91;
+    --color-four: 177, 200, 140;
+    --color-five: 210, 223, 189;
+    --color-six: 243, 247, 238;
+    --color-stroke: 235, 235, 235;
+    --color-protein: 232, 143, 191;
+    --color-fat: 197, 172, 239;
+    --color-carb: 148, 187, 200;
+  }
 }

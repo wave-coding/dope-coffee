@@ -5,7 +5,7 @@ const Card = () => {
       <Image
         className="w-auto rounded-t-md mb-2"
         src="http://pets-images.dev-apis.com/pets/dog25.jpg"
-        alt="here we are"
+        alt="here we a re"
         width={148}
         height={96}
       ></Image>

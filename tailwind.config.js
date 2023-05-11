@@ -6,12 +6,42 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontSize: {
+      'headline-lg': [
+        '32px',
+        { lineHeight: '40px', letterSpacing: '-0.03em', fontWeight: 500 },
+      ],
+      'headline-md': [
+        '28px',
+        { lineHeight: '36px', letterSpacing: '-0.03em', fontWeight: 400 },
+      ],
+      'label-md': [
+        '12px',
+        { lineHeight: '16px', letterSpacing: '-0.03em', fontWeight: 500 },
+      ],
+      'label-sm': [
+        '11px',
+        { lineHeight: '16px', letterSpacing: '-0.03em', fontWeight: 500 },
+      ],
+      'body-lg': [
+        '16px',
+        { lineHeight: '24px', letterSpacing: '-0.03em', fontWeight: 500 },
+      ],
+      'body-md': [
+        '14px',
+        { lineHeight: '20px', letterSpacing: '-0.03em', fontWeight: 400 },
+      ],
+      // lg: ['32px', { lineHeight: '40px', letterSpacing: '-0.03em' }],
+      // xl: ['14px', { lineHeight: '24px', letterSpacing: '-0.03em' }],
+      // '2xl': ['14px', { lineHeight: '24px', letterSpacing: '-0.032em' }],
+      // '3xl': ['14px', { lineHeight: '24px', letterSpacing: '-0.032em' }],
+      // '4xl': ['14px', { lineHeight: '24px', letterSpacing: '-0.032em' }],
+      // '5xl': ['14px', { lineHeight: '24px', letterSpacing: '-0.032em' }],
+    },
+    fontFamily: {
+      roboto: ['Roboto', 'sans-serif'], //'sans-serif'
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       colors: {
         'color-one': 'rgba(var(--color-one), <alpha-value>)',
         'color-two': 'rgba(var(--color-two), <alpha-value>)',
@@ -26,7 +56,6 @@ module.exports = {
         'color-vegetarian': 'rgba(var(--color-vegetarian), <alpha-value>)',
         'color-hug': 'rgba(var(--color-hug), <alpha-value>)',
       },
-      fontSize: {},
     },
   },
   plugins: [],

@@ -10,7 +10,10 @@ const colorVariants = {
 
 const Button = ({ type, key }: { type: Buttons; key: number }) => {
   return (
-    <button key={key} className={`${colorVariants[type]} rounded-md px-4 py-1`}>
+    <button
+      key={key}
+      className={`${colorVariants[type]} flex center rounded-md px-3`}
+    >
       {type}
     </button>
   );

@@ -55,6 +55,7 @@ module.exports = {
         'color-carb': 'rgba(var(--color-carb), <alpha-value>)',
         'color-vegetarian': 'rgba(var(--color-vegetarian), <alpha-value>)',
         'color-hug': 'rgba(var(--color-hug), <alpha-value>)',
+        'color-neutral': 'rgba(var(--color-neutral), <alpha-value>)',
       },
     },
   },

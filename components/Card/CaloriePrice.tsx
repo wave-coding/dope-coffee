@@ -5,7 +5,7 @@ const CaloriePrice = ({
   price: number;
   calorie: number;
 }) => (
-  <div className="flex text-color-neutral text-body-md justify-between text-sm">
+  <div className="text-sm flex justify-between text-body-md text-color-neutral">
     <h5>{`${calorie} Kcal`}</h5>
     <h5>${`${price}`}</h5>
   </div>

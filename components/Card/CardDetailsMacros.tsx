@@ -3,7 +3,7 @@ import { Buttons } from '@/components/buttons/button.type';
 
 const CardDetailsMicros = ({ micros }: { micros: Buttons[] }) => {
   return (
-    <div className="flex text-label-sm space-x-1 text-white items-center">
+    <div className="flex items-center space-x-1 text-label-sm text-white">
       {micros.map((micro: Buttons, index) => (
         <Button key={index} type={micro} />
       ))}

@@ -12,7 +12,7 @@ const Button = ({ type, key }: { type: Buttons; key: number }) => {
   return (
     <button
       key={key}
-      className={`${colorVariants[type]} flex center rounded-md px-3`}
+      className={`${colorVariants[type]} center flex rounded-md px-3`}
     >
       {type}
     </button>

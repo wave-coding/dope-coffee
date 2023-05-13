@@ -10,8 +10,9 @@ const Icon = ({ name, color, size }: IconProps) => {
   if (!icon) return null;
 
   return (
-    <div className="container">
+    <i className="flex">
       <svg
+        className="flex"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         width={size} // added size here
@@ -19,10 +20,10 @@ const Icon = ({ name, color, size }: IconProps) => {
         fill={color} // added color here
       >
         {icon.path.map((p, index) => (
-          <path key={index} d={p.d}></path>
+          <path key={index} d={p.d} stroke={p?.stroke ? color : ''}></path>
         ))}
       </svg>
-    </div>
+    </i>
   );
 };
 

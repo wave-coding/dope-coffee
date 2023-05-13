@@ -8,14 +8,24 @@ const colorVariants = {
   Hug: 'bg-color-hug',
 };
 
-const Button = ({ type, key }: { type: Buttons; key: number }) => {
+const Button = ({
+  type,
+  key,
+  children,
+}: {
+  type: Buttons;
+  key: number;
+  children: any;
+}) => {
   return (
-    <button
+    <a
+      href=""
       key={key}
-      className={`${colorVariants[type]} center flex rounded-md px-3`}
+      className={`${colorVariants[type]} flex content-center items-center justify-center space-x-1.5 rounded-md px-1`}
     >
-      {type}
-    </button>
+      {children}
+      <p className="flex">{type}</p>
+    </a>
   );
 };
 

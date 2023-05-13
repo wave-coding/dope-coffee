@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Buttons } from './button.type';
 
 const colorVariants = {
@@ -8,7 +9,12 @@ const colorVariants = {
   Hug: 'bg-color-hug',
 };
 
-const Button = ({ type, key }: { type: Buttons; key: number }) => {
+interface ButtonProps {
+  type: Buttons;
+  key: number;
+}
+
+const Button: FC<ButtonProps> = ({ type, key }) => {
   return (
     <button
       key={key}

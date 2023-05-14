@@ -1,6 +1,7 @@
 import Button from '@/components/buttons/Button';
 import { Buttons } from '@/components/buttons/button.type';
 import { FC } from 'react';
+import Icon from '@/components/Icon/Icon';
 
 interface CardDetailsMicrosProps {
   micros: Buttons[];

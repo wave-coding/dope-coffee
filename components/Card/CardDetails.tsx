@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import CaloriePrice from './CaloriePrice';
 import CardDetailsMicros from './CardDetailsMacros';
 
-const CardDetails = () => (
+const CardDetails: FC = () => (
   <div className="details flex flex-col space-y-2 px-2 pb-2 pt-2">
     <h3 className="text-label-sm text-slate-900">Shrimp Pizza</h3>
     <CardDetailsMicros micros={['Carb', 'Protein', 'Hug']} />

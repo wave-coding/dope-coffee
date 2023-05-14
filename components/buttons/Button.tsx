@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Buttons } from './button.type';
 
 const colorVariants = {
@@ -8,15 +9,13 @@ const colorVariants = {
   Hug: 'bg-color-hug',
 };
 
-const Button = ({
-  type,
-  key,
-  children,
-}: {
+interface ButtonProps {
   type: Buttons;
   key: number;
   children: any;
-}) => {
+}
+
+const Button: FC<ButtonProps> = ({ type, key, children }) => {
   return (
     <a
       href=""

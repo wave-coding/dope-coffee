@@ -1,9 +1,12 @@
 import Card from '@/components/Card/Card';
+import { FC } from 'react';
 
-export default function Home() {
+const Home: FC = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-color-five p-24 font-roboto text-color-three">
       <Card />
     </main>
   );
-}
+};
+
+export default Home;

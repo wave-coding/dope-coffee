@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import icons, { ISVGIcon, iconNames } from './icons';
 
 interface IconProps {
@@ -5,7 +6,8 @@ interface IconProps {
   color: string;
   size: number;
 }
-const Icon = ({ name, color, size }: IconProps) => {
+
+const Icon: FC<IconProps> = ({ name, color, size }) => {
   const icon: ISVGIcon = icons[name];
   if (!icon) return null;
 

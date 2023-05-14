@@ -1,7 +1,9 @@
+import Icon from '@/components/Icon/Icon';
 import Image from 'next/image';
+import { FC } from 'react';
 import CardDetails from './CardDetails';
 
-const Card = ({}) => {
+const Card: FC = () => {
   return (
     <div className="flex w-auto flex-col overflow-hidden rounded-md bg-color-six">
       <Image
@@ -10,7 +12,7 @@ const Card = ({}) => {
         alt="here we are"
         width={148}
         height={96}
-      ></Image>
+      />
       <CardDetails />
     </div>
   );

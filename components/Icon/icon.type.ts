@@ -11,8 +11,8 @@ export interface SVG {
   stroke?: string;
   transform?: string;
   circle?: Circle;
-  fillRule?: 'evenodd' | 'inherit' | 'nonzero' | undefined;
-  clipRule?: 'evenodd' | 'inherit' | 'nonzero' | undefined;
+  fillRule?: 'evenodd' | 'inherit' | 'nonzero';
+  clipRule?: 'evenodd' | 'inherit' | 'nonzero';
   strokeLinejoin?: 'round';
   strokeLinecap?: 'round' | 'square';
   strokeWidth?: string;

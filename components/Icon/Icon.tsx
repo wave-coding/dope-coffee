@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import icons, { ISVGIcon, iconNames } from './icons';
+import { SVG, SVGIcon, iconNames } from './icon.type';
+import icons from './icons';
 
 interface IconProps {
   name: iconNames;
@@ -8,7 +9,7 @@ interface IconProps {
 }
 
 const Icon: FC<IconProps> = ({ name, color, size }) => {
-  const icon: ISVGIcon = icons[name];
+  const icon: SVGIcon = icons[name];
   if (!icon) return null;
 
   return (
@@ -21,7 +22,7 @@ const Icon: FC<IconProps> = ({ name, color, size }) => {
         height={size} // added size here
         fill={color} // added color here
       >
-        {icon.path.map((p, index) => (
+        {icon.path.map((p: SVG, index) => (
           <path key={index} d={p.d} stroke={p?.stroke ? color : ''}></path>
         ))}
       </svg>

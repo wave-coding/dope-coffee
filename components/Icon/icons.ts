@@ -1,36 +1,4 @@
-interface ICircle {
-  cx: number;
-  cy: number;
-  r: number;
-}
-
-interface ISVG {
-  d: string;
-  viewBox?: string;
-  fill?: string;
-  stroke?: string;
-  transform?: string;
-  circle?: ICircle;
-  fillRule?: 'evenodd' | 'inherit' | 'nonzero' | undefined;
-  clipRule?: 'evenodd' | 'inherit' | 'nonzero' | undefined;
-  strokeLinejoin?: 'round';
-  strokeLinecap?: 'round' | 'square';
-  strokeWidth?: string;
-  strokeMiterlimit?: string;
-}
-
-export interface ISVGOption {
-  viewBox?: string;
-}
-
-export interface ISVGIcon {
-  path: ISVG[];
-  options?: ISVGOption;
-}
-
-export type iconNames = 'star' | 'bold-star' | 'search-normal';
-
-export type TIcons = Record<iconNames, ISVGIcon>;
+import { TIcons } from './icon.type';
 
 const icons: TIcons = {
   star: {

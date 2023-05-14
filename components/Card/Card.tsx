@@ -1,4 +1,3 @@
-import Icon from '@/components/Icon/Icon';
 import Image from 'next/image';
 import { FC } from 'react';
 import CardDetails from './CardDetails';

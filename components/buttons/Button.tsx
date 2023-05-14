@@ -12,16 +12,19 @@ const colorVariants = {
 interface ButtonProps {
   type: Buttons;
   key: number;
+  children: any;
 }
 
-const Button: FC<ButtonProps> = ({ type, key }) => {
+const Button: FC<ButtonProps> = ({ type, key, children }) => {
   return (
-    <button
+    <a
+      href=""
       key={key}
-      className={`${colorVariants[type]} center flex rounded-md px-3`}
+      className={`${colorVariants[type]} flex content-center items-center justify-center space-x-1.5 rounded-md px-1`}
     >
-      {type}
-    </button>
+      {children}
+      <p className="flex">{type}</p>
+    </a>
   );
 };
 

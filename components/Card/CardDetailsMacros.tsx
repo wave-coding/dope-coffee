@@ -10,7 +10,9 @@ const CardDetailsMicros: FC<CardDetailsMicrosProps> = ({ micros }) => {
   return (
     <div className="flex items-center space-x-1 text-label-sm text-white">
       {micros.map((micro: Buttons, index) => (
-        <Button key={index} type={micro} />
+        <Button key={index} type={micro}>
+          <Icon name="search-normal" color="black" size={15} />
+        </Button>
       ))}
     </div>
   );

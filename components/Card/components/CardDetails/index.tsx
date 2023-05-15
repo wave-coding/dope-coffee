@@ -1,5 +1,5 @@
-import { CaloriePrice } from '@/components';
 import { FC } from 'react';
+import CaloriePrice from './components/CaloriePrice';
 import CardDetailsMicros from './components/CardDetailsMacros';
 
 const CardDetails: FC = () => (

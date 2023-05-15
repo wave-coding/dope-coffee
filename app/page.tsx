@@ -1,4 +1,4 @@
-import Card from '@/components/Card/Card';
+import { Card } from '@/components';
 import { FC } from 'react';
 
 const Home: FC = () => {

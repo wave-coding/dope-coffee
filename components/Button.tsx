@@ -1,5 +1,5 @@
+import { ButtonType } from '@/types';
 import { FC } from 'react';
-import { Buttons } from './button.type';
 
 const colorVariants = {
   Protein: 'bg-color-protein',
@@ -10,7 +10,7 @@ const colorVariants = {
 };
 
 interface ButtonProps {
-  type: Buttons;
+  type: ButtonType;
   key: number;
   children: any;
 }

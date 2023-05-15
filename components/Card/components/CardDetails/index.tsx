@@ -1,6 +1,6 @@
+import { CaloriePrice } from '@/components';
 import { FC } from 'react';
-import CaloriePrice from './CaloriePrice';
-import CardDetailsMicros from './CardDetailsMacros';
+import CardDetailsMicros from './components/CardDetailsMacros';
 
 const CardDetails: FC = () => (
   <div className="details flex flex-col space-y-2 px-2 pb-2 pt-2">

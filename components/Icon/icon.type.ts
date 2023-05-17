@@ -8,7 +8,7 @@ export interface IconProps extends Partial<SVGProps<SVGSVGElement>> {
 
 export type Icon = (props: IconProps) => JSX.Element;
 
-export type iconNames =
+export type IconNames =
   | 'star'
   | 'bold-star'
   | 'search-normal'
@@ -21,4 +21,4 @@ export type iconNames =
   | 'low'
   | 'more';
 
-export type TIcons = Record<iconNames, Icon>;
+export type TIcons = Record<IconNames, Icon>;

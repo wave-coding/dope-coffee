@@ -17,14 +17,13 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({ type, key, children }) => {
   return (
-    <a
-      href=""
+    <button
       key={key}
       className={`${colorVariants[type]} flex content-center items-center justify-center space-x-1.5 rounded-md px-1`}
     >
       {children}
-      <p className="flex">{type}</p>
-    </a>
+      {type !== 'Hug' && <p className="flex">{type}</p>}
+    </button>
   );
 };
 

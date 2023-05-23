@@ -1,33 +1,24 @@
-interface Circle {
-  cx: number;
-  cy: number;
-  r: number;
+import { SVGProps } from 'react';
+
+// Create interface extending SVGProps
+export interface IconProps extends Partial<SVGProps<SVGSVGElement>> {
+  size?: string | number;
+  absoluteStrokeWidth?: boolean;
 }
 
-export interface SVG {
-  d: string;
-  viewBox?: string;
-  fill?: string;
-  stroke?: string;
-  transform?: string;
-  circle?: Circle;
-  fillRule?: 'evenodd' | 'inherit' | 'nonzero';
-  clipRule?: 'evenodd' | 'inherit' | 'nonzero';
-  strokeLinejoin?: 'round';
-  strokeLinecap?: 'round' | 'square';
-  strokeWidth?: string;
-  strokeMiterlimit?: string;
-}
+export type Icon = (props: IconProps) => JSX.Element;
 
-export interface SVGOption {
-  viewBox?: string;
-}
+export type IconNames =
+  | 'star'
+  | 'bold-star'
+  | 'search-normal'
+  | 'close-circle'
+  | 'home'
+  | 'location'
+  | 'shopping-card'
+  | 'profile'
+  | 'high'
+  | 'low'
+  | 'more';
 
-export interface SVGIcon {
-  path: SVG[];
-  options?: SVGOption;
-}
-
-export type iconNames = 'star' | 'bold-star' | 'search-normal';
-
-export type TIcons = Record<iconNames, SVGIcon>;
+export type TIcons = Record<IconNames, Icon>;

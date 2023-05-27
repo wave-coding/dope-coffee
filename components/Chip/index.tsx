@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ChipFunc, ChipType, IntensityType, TChips } from './Chip.type';
+import { ChipFunc, ChipType, IntensityType, ChipRecords } from './Chip.type';
 import { Icon } from '@/components/Icon/icon.type';
 import Icons from '@/components//Icon';
 
@@ -13,7 +13,7 @@ const intensitySelector: ChipFunc = (intensity) => {
   return Icons[intensity];
 };
 
-export const Chips: TChips = {
+export const Chips: ChipRecords = {
   Carb: intensitySelector,
   Fat: intensitySelector,
   Protein: intensitySelector,

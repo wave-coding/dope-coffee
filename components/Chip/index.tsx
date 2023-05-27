@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { ChipFunc, ChipType, IntensityType, ChipRecords } from './Chip.type';
 import { Icon } from '@/components/Icon/icon.type';
-import Icons from '@/components//Icon';
+import Icons from '@/components/Icon';
 
 export interface ChipProps {
   type: ChipType;
   intensity?: IntensityType;
 }
-const intensitySelector: ChipFunc = (intensity) => {
+const intensitySelector: ChipFunc = (intensity = null) => {
   if (!intensity) return null;
 
   return Icons[intensity];
@@ -21,8 +21,9 @@ export const Chips: ChipRecords = {
   Vegetarian: () => null,
 };
 
-const Chip: FC<ChipProps> = (props) => {
-  const Icon: Icon | null = Chips[props.type](props.intensity);
+const Chip: FC<ChipProps> = ({ type, intensity = null }) => {
+  const Icon: Icon | null =
+    typeof intensity === 'string' ? Chips[type](intensity) : null;
 
   return (
     <button

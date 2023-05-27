@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Button } from '@/components';
-import { Icons } from '@/components/Icon/icons';
+import Icons from '@/components/Icon/';
 import { ButtonType } from '@/types';
 
 interface CardDetailsMicrosProps {

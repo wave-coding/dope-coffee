@@ -21,4 +21,4 @@ export type IconNames =
   | 'low'
   | 'more';
 
-export type TIcons = Record<IconNames, Icon>;
+export type IconRecords = Record<IconNames, Icon>;

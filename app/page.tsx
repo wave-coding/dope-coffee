@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Card } from '@/components';
 import Chip, { ChipProps } from '@/components/Chip';
+import { NavigationBottom } from '@/components/NavigationBottom';
 
 export type ConfigType = {
   Chips: ChipProps[];
@@ -16,7 +17,7 @@ const Config: ConfigType = {
 };
 const Home: FC = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-color-five p-24 font-roboto text-color-three">
+    <main className="flex min-h-screen flex-col items-center justify-between bg-color-five font-roboto text-color-three">
       <div className="bg-white p-3">
         <h1 className="text-headline-lg">Components</h1>
 
@@ -37,6 +38,7 @@ const Home: FC = () => {
           </div>
         </div>
       </div>
+      <NavigationBottom />
     </main>
   );
 };

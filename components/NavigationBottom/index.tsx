@@ -55,12 +55,12 @@ export const NavigationBottom: FC = () => {
           >
             <div className="flex w-2/5 flex-col items-center">
               <Icon
-                className={`svg mb-1 fill-color-neutral/50 group-hover:fill-color-three ${
+                className={`svg mb-1 fill-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:fill-color-three ${
                   isCurrentItemActive ? 'fill-color-three' : ''
-                }`}
+                } `}
               />
               <span
-                className={`text-label-md text-color-neutral/50 group-hover:text-color-neutral/90 ${
+                className={`text-label-md text-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:text-color-neutral/90  ${
                   isCurrentItemActive ? 'text-color-neutral/90' : ''
                 }`}
               >

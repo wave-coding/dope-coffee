@@ -17,8 +17,8 @@ const Config: ConfigType = {
 };
 const Home: FC = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-color-five font-roboto text-color-three">
-      <div className="bg-white p-3">
+    <main className="flex flex-col items-center justify-between bg-color-five p-0 font-roboto text-color-three">
+      <div className="bg-white">
         <h1 className="text-headline-lg">Components</h1>
 
         <hr />
@@ -37,8 +37,12 @@ const Home: FC = () => {
             })}
           </div>
         </div>
+        <div className="bg-white">
+          <h1 className="text-body-lg text-color-two">Navigation Bottom</h1>
+
+          <NavigationBottom />
+        </div>
       </div>
-      <NavigationBottom />
     </main>
   );
 };

@@ -32,6 +32,24 @@ const menuItems: NavigationItem[] = [
   },
 ];
 
+interface NavIconProps {
+  activeIcon: IconNames;
+  icon: IconNames;
+  isActive: boolean;
+}
+
+const NavIcon: FC<NavIconProps> = ({ activeIcon, icon, isActive }) => {
+  const Icon = isActive ? Icons[activeIcon] : Icons[icon];
+
+  return (
+    <Icon
+      className={`svg mb-1 fill-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:fill-color-three ${
+        isActive ? 'fill-color-three' : ''
+      } `}
+    />
+  );
+};
+
 export const NavigationBottom: FC = () => {
   const [active, setActive] = useState<null | NavigationItem>(null);
   const [hover, setHover] = useState<null | NavigationItem>(null);
@@ -40,11 +58,9 @@ export const NavigationBottom: FC = () => {
     <nav className="flex items-baseline justify-around bg-white py-1">
       {menuItems.map((item, index) => {
         const { activeIcon, icon, title } = item;
-        const isCurrentItemActive = active && item === active;
-        const Icon =
-          isCurrentItemActive || (hover && item === hover)
-            ? Icons[activeIcon]
-            : Icons[icon];
+        const isCurrentItemActive = item === active;
+        const isCurrentItemHover = Boolean(hover) && item === hover;
+
         return (
           <div
             className=" group flex w-full flex-col items-center hover:cursor-pointer"
@@ -54,10 +70,10 @@ export const NavigationBottom: FC = () => {
             onMouseLeave={() => setHover(null)}
           >
             <div className="flex w-2/5 flex-col items-center">
-              <Icon
-                className={`svg mb-1 fill-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:fill-color-three ${
-                  isCurrentItemActive ? 'fill-color-three' : ''
-                } `}
+              <NavIcon
+                isActive={isCurrentItemActive || isCurrentItemHover}
+                activeIcon={activeIcon}
+                icon={icon}
               />
               <span
                 className={`text-label-md text-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:text-color-neutral/90  ${

@@ -14,9 +14,13 @@ export type IconNames =
   | 'search-normal'
   | 'close-circle'
   | 'home'
+  | 'home-outline'
   | 'location'
+  | 'location-outline'
   | 'shopping-card'
+  | 'shopping-card-outline'
   | 'profile'
+  | 'profile-outline'
   | 'high'
   | 'low'
   | 'more';

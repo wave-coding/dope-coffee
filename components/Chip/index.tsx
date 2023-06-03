@@ -19,7 +19,7 @@ export const Chips: ChipRecords = {
   Vegetarian: () => null,
 };
 
-const colorVariants = {
+const ColorVariants = {
   Protein: 'bg-color-protein',
   Fat: 'bg-color-fat',
   Carb: 'bg-color-carb',
@@ -37,7 +37,7 @@ const getIconByChipType = ({
 const Chip: FC<ChipProps> = ({ type, intensity = null }) => {
   const Icon: Icon | null = getIconByChipType({ type, intensity });
 
-  const buttonClass = `${colorVariants[type]} inline-flex items-center rounded-md px-1 text-white`;
+  const buttonClass = `${ColorVariants[type]} inline-flex items-center rounded-md px-1 text-white`;
   const spanClass = `${type !== 'Vegetarian' ? 'ml-1' : ''}  text-label-sm`;
 
   return (

@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Buttons } from './button.type';
+import { ButtonType } from '@/types';
+import { FC, ReactNode } from 'react';
 
 const colorVariants = {
   Protein: 'bg-color-protein',
@@ -10,21 +10,20 @@ const colorVariants = {
 };
 
 interface ButtonProps {
-  type: Buttons;
+  type: ButtonType;
   key: number;
-  children: any;
+  children: ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({ type, key, children }) => {
   return (
-    <a
-      href=""
+    <button
       key={key}
       className={`${colorVariants[type]} flex content-center items-center justify-center space-x-1.5 rounded-md px-1`}
     >
       {children}
-      <p className="flex">{type}</p>
-    </a>
+      {type !== 'Hug' && <p className="flex">{type}</p>}
+    </button>
   );
 };
 

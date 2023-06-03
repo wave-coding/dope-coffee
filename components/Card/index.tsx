@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
-import CardDetails from './CardDetails';
+import CardDetails from './components/CardDetails';
 
 const Card: FC = () => {
   return (

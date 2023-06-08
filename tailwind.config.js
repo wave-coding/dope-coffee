@@ -31,6 +31,10 @@ module.exports = {
         '14px',
         { lineHeight: '20px', letterSpacing: '-0.03em', fontWeight: 400 },
       ],
+      'body-sm': [
+        '10px',
+        { lineHeight: '20px', letterSpacing: '-0.03em', fontWeight: 400 },
+      ],
       // lg: ['32px', { lineHeight: '40px', letterSpacing: '-0.03em' }],
       // xl: ['14px', { lineHeight: '24px', letterSpacing: '-0.03em' }],
       // '2xl': ['14px', { lineHeight: '24px', letterSpacing: '-0.032em' }],

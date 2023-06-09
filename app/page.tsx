@@ -6,6 +6,7 @@ import {
   NumberButton,
   Card,
   Frame,
+  Legend,
 } from '@/components';
 
 export type ConfigType = {
@@ -73,6 +74,12 @@ const Home: FC = () => {
               },
             ]}
           />
+        </div>
+        <div className="bg-white">
+          <h1 className="text-body-lg text-color-two">Legend</h1>
+          <Legend amount={230} type="Carb" />
+          <Legend amount={230} type="Fat" />
+          <Legend amount={230} type="Protein" />
         </div>
       </div>
     </main>

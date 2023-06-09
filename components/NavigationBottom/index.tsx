@@ -50,7 +50,7 @@ const NavIcon: FC<NavIconProps> = ({ activeIcon, icon, isActive }) => {
   );
 };
 
-export const NavigationBottom: FC = () => {
+const NavigationBottom: FC = () => {
   const [active, setActive] = useState<null | NavigationItem>(null);
   const [hover, setHover] = useState<null | NavigationItem>(null);
 
@@ -89,3 +89,5 @@ export const NavigationBottom: FC = () => {
     </nav>
   );
 };
+
+export default NavigationBottom;

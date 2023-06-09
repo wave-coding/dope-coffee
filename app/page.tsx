@@ -1,6 +1,12 @@
 import { FC } from 'react';
 import { ChipProps } from '@/components/Chip';
-import { NavigationBottom, Chip, NumberButton, Card } from '@/components';
+import {
+  NavigationBottom,
+  Chip,
+  NumberButton,
+  Card,
+  Frame,
+} from '@/components';
 
 export type ConfigType = {
   Chips: ChipProps[];
@@ -44,6 +50,29 @@ const Home: FC = () => {
         <div className="bg-white">
           <h1 className="text-body-lg text-color-two">Number Bottom</h1>
           <NumberButton />
+        </div>
+        <div className="bg-white">
+          <h1 className="text-body-lg text-color-two">Frame</h1>
+          <Frame
+            macros={[
+              {
+                amount: 12,
+                type: 'Carb',
+              },
+              {
+                amount: 15,
+                type: 'Protein',
+              },
+              {
+                amount: 29,
+                type: 'Fat',
+              },
+              {
+                amount: 30,
+                type: 'Vegetarian',
+              },
+            ]}
+          />
         </div>
       </div>
     </main>

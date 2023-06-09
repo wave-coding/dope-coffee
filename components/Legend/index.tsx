@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import { COLOR_VARIANTS } from '@/shared';
 import { MacroType } from '@/types';
-import { FC } from 'react';
 
 interface LegendProps {
   type: MacroType;

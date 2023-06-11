@@ -7,6 +7,7 @@ import {
   Card,
   Frame,
   Legend,
+  CardBasket,
 } from '@/components';
 
 export type ConfigType = {
@@ -24,7 +25,7 @@ const Config: ConfigType = {
 const Home: FC = () => {
   return (
     <main className="flex flex-col items-center justify-between bg-color-five p-0 font-roboto text-color-three">
-      <div className="bg-white">
+      <div className="min-w-full bg-white">
         <h1 className="text-headline-lg">Components</h1>
 
         <hr />
@@ -80,6 +81,27 @@ const Home: FC = () => {
           <Legend amount={230} type="Carb" />
           <Legend amount={230} type="Fat" />
           <Legend amount={230} type="Protein" />
+        </div>
+        <div className="bg-slate-100">
+          <h1 className="p-2 text-body-lg text-color-two">Card Basket</h1>
+          <CardBasket
+            image="https://cdn.pixabay.com/photo/2016/11/23/18/31/pasta-1854245_1280.jpg"
+            name="Beef steak"
+            price={200}
+            quantity={3}
+          />
+          <CardBasket
+            image="https://cdn.pixabay.com/photo/2016/11/23/18/31/pasta-1854245_1280.jpg"
+            name="Beef steak"
+            price={200}
+            quantity={3}
+          />
+          <CardBasket
+            image="https://cdn.pixabay.com/photo/2016/11/23/18/31/pasta-1854245_1280.jpg"
+            name="Beef steak"
+            price={200}
+            quantity={3}
+          />
         </div>
       </div>
     </main>

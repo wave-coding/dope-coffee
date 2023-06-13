@@ -6,3 +6,4 @@ export { default as NavigationBottom } from './NavigationBottom';
 export { default as NumberButton } from './NumberButton';
 export { default as Frame } from './Frame';
 export { default as Legend } from './Legend';
+export { default as CardBasket } from './CardBasket';

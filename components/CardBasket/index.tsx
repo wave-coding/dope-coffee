@@ -34,7 +34,10 @@ const CardBasketProductDetails: FC<Pick<CardBasketProps, 'name' | 'price'>> = ({
     <div className="flex w-3/5">
       <div className="flex flex-col items-start">
         <h4 className="text-body-lg">{name}</h4>
-        <h5 className="text-body-lg">${price}</h5>
+        <h5 className="text-body-lg">
+          <span className="text-color-neutral/70">$</span>
+          {price}
+        </h5>
       </div>
     </div>
   );

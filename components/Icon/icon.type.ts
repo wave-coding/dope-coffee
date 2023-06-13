@@ -23,6 +23,8 @@ export type IconNames =
   | 'profile-outline'
   | 'high'
   | 'low'
-  | 'more';
+  | 'more'
+  | 'minus'
+  | 'add';
 
 export type IconRecords = Record<IconNames, Icon>;

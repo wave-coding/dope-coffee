@@ -82,7 +82,7 @@ const Home: FC = () => {
           <Legend amount={230} type="Fat" />
           <Legend amount={230} type="Protein" />
         </div>
-        <div className="bg-slate-100">
+        <div className="bg-slate-100 p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">Card Basket</h1>
           <CardBasket
             image="https://cdn.pixabay.com/photo/2016/11/23/18/31/pasta-1854245_1280.jpg"

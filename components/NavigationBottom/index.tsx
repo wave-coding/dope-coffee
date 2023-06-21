@@ -2,6 +2,7 @@
 import { FC, useState } from 'react';
 import { Icons } from '@/components/';
 import { IconNames } from '../Icon/icon.type';
+import { clsx } from 'clsx';
 
 interface NavigationItem {
   icon: IconNames;
@@ -43,9 +44,9 @@ const NavIcon: FC<NavIconProps> = ({ activeIcon, icon, isActive }) => {
 
   return (
     <Icon
-      className={`svg mb-1 fill-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:fill-color-three ${
-        isActive ? 'fill-color-three' : ''
-      } `}
+      className={`svg mb-1 fill-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:fill-color-three ${clsx(
+        isActive && 'fill-color-three'
+      )} `}
     />
   );
 };
@@ -76,9 +77,9 @@ const NavigationBottom: FC = () => {
                 icon={icon}
               />
               <span
-                className={`text-label-md text-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:text-color-neutral/90  ${
-                  isCurrentItemActive ? 'text-color-neutral/90' : ''
-                }`}
+                className={`text-label-md text-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:text-color-neutral/90  ${clsx(
+                  isCurrentItemActive && 'text-color-neutral/90'
+                )}`}
               >
                 {title}
               </span>

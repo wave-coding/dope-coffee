@@ -13,7 +13,7 @@ export interface FrameProps {
 
 type makeFrameListInputType = MacrosType & { total: number };
 
-const calcSumOfMacros = (macros: MacrosType[]) => {
+const calculateSumOfMacros = (macros: MacrosType[]) => {
   return macros.reduce((sum, macro) => sum + macro.amount, 0);
 };
 
@@ -30,7 +30,7 @@ const makeFrameList = ({ amount, type, total }: makeFrameListInputType) => {
 };
 
 const Frame: FC<FrameProps> = ({ macros = [] }) => {
-  const total = calcSumOfMacros(macros);
+  const total = calculateSumOfMacros(macros);
 
   return (
     <div className="inline-flex w-full">

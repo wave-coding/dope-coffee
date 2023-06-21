@@ -63,7 +63,7 @@ const NavigationBottom: FC = () => {
 
         return (
           <div
-            className=" group flex w-full flex-col items-center hover:cursor-pointer"
+            className="group flex w-full flex-col items-center hover:cursor-pointer"
             key={index}
             onClick={() => setActive(item)}
             onMouseEnter={() => setHover(item)}

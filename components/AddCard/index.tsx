@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
+import { handlerType } from '@/types';
 import Icons from '@/components/Icon';
-
-type handlerType = () => void;
 
 interface CardBasketQuantityItemsProps {
   increaseHandler: handlerType;

@@ -85,7 +85,7 @@ const AddCard: FC<Pick<CardBasketQuantityItemsProps, 'quantity'>> = ({
 
   return (
     <AddCardContainer
-      quantity={quantity}
+      quantity={quantityValue}
       decreaseHandler={handleDecrease}
       increaseHandler={handleIncrease}
     />

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { clsx } from 'clsx';
 import { ChipFunc, ChipType, IntensityType, ChipRecords } from './Chip.type';
 import { Icon } from '@/components/Icon/icon.type';
 import Icons from '@/components/Icon';
@@ -31,7 +32,7 @@ const Chip: FC<ChipProps> = ({ type, intensity = null }) => {
   const Icon: Icon | null = getIconByChipType({ type, intensity });
 
   const buttonClass = `${COLOR_VARIANTS[type]} inline-flex items-center rounded-md px-1 text-white`;
-  const spanClass = `${type !== 'Vegetarian' ? 'ml-1' : ''}  text-label-sm`;
+  const spanClass = `${clsx(type !== 'Vegetarian' && 'ml-1')}  text-label-sm`;
 
   return (
     <button className={buttonClass}>

@@ -32,12 +32,12 @@ const getIconByChipType = ({
 const Chip: FC<ChipProps> = ({ type, intensity = null }) => {
   const Icon: Icon | null = getIconByChipType({ type, intensity });
 
-  const buttonClass = `${COLOR_VARIANTS[type]} inline-flex items-center rounded-md px-1 text-white`;
+  const buttonClass = `${COLOR_VARIANTS[type]} py-0.5 inline-flex items-center rounded-md px-2 text-white`;
   const spanClass = `${clsx(type !== 'Vegetarian' && 'ml-1')}  text-label-sm`;
 
   return (
     <button className={buttonClass}>
-      {Icon && <Icon fill="white" className="h-3 w-3 align-middle" />}
+      {Icon && <Icon fill="white" className="h-5 w-5 align-middle" />}
       {type === 'Hug' ? null : <span className={spanClass}>{type}</span>}
     </button>
   );

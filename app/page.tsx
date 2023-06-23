@@ -8,6 +8,7 @@ import {
   Frame,
   Legend,
   CardBasket,
+  CardRestaurantLocation,
 } from '@/components';
 
 export type ConfigType = {
@@ -101,6 +102,23 @@ const Home: FC = () => {
             name="Beef steak"
             price={200}
             quantity={3}
+          />
+        </div>
+        <div className="bg-slate-100 p-1 [&>*]:mt-1">
+          <h1 className="p-2 text-body-lg text-color-two">
+            Card Restaurant Location
+          </h1>
+          <CardRestaurantLocation
+            name="Ying bin"
+            type="Asian"
+            score={4.3}
+            macros={[
+              { type: 'Protein', intensity: 'high' },
+              { type: 'Fat', intensity: 'low' },
+              { type: 'Carb', intensity: 'high' },
+              { type: 'Vegetarian' },
+            ]}
+            reviewsCount="10k"
           />
         </div>
       </div>

@@ -25,6 +25,7 @@ export type IconNames =
   | 'low'
   | 'more'
   | 'minus'
-  | 'add';
+  | 'add'
+  | 'filled-star';
 
 export type IconRecords = Record<IconNames, Icon>;

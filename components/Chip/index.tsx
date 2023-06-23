@@ -1,12 +1,13 @@
 import { FC } from 'react';
 import { clsx } from 'clsx';
-import { ChipFunc, ChipType, IntensityType, ChipRecords } from './Chip.type';
+import { ChipFunc, ChipRecords } from './Chip.type';
 import { Icon } from '@/components/Icon/icon.type';
 import Icons from '@/components/Icon';
 import { COLOR_VARIANTS } from '@/shared';
+import { IntensityType, MacroType } from '@/types';
 
 export interface ChipProps {
-  type: ChipType;
+  type: MacroType;
   intensity?: IntensityType | null;
 }
 const intensitySelector: ChipFunc = (intensity = null) => {

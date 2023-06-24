@@ -111,7 +111,7 @@ const Home: FC = () => {
           <CardRestaurantLocation
             name="Ying bin"
             type="Asian"
-            score={4.3}
+            score={4.45}
             macros={[
               { type: 'Protein', intensity: 'high' },
               { type: 'Fat', intensity: 'low' },

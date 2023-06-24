@@ -20,9 +20,34 @@ const Stars: FC<StarsProps> = ({ count = 5, score }) => {
   const Icon = Icons['filled-star'];
   return (
     <div className="stars flex">
-      {Array.from({ length: count }, (_, index) => (
-        <Icon key={index} fill="#FFAE5F" width={24} height={24} />
-      ))}
+      {Array.from({ length: count }, (_, index) => {
+        if (score - index > 0 && score - index < 1) {
+          return (
+            <Icon
+              key={index}
+              fill="transparent"
+              stroke="#FFAE5F"
+              strokeWidth={1.3}
+              width={24}
+              height={24}
+              endPercentage={(score - index) * 100}
+              linearGradientStopColor="#FFAE5F"
+              linearGradientLastStopColor="transparent"
+            />
+          );
+        } else {
+          return (
+            <Icon
+              key={index}
+              fill="#FFAE5F"
+              stroke="#FFAE5F"
+              strokeWidth={1.3}
+              width={24}
+              height={24}
+            />
+          );
+        }
+      })}
     </div>
   );
 };

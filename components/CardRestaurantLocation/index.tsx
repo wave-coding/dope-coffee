@@ -59,11 +59,17 @@ const CardRestaurantLocation: FC<CardRestaurantLocationProps> = ({
   macros,
   reviewsCount,
 }) => {
+  const Icon = Icons['filled-star'];
   return (
     <div className="flex w-auto flex-col overflow-hidden rounded-md bg-color-three p-2 pl-3 text-white">
-      <h2 className="mb-1 mt-1 text-headline-lg">{name}</h2>
+      <div className="title flex">
+        <h2 className="mb-1 mt-1 text-headline-lg">{name}</h2>
+        <div className="flex w-1/6 flex-row items-center">
+          <Icon fill="transparent" className="flex stroke-white" />
+        </div>
+      </div>
       <h3 className="mb-1 mt-1 text-headline-md">{type}</h3>
-      <div className="flex">
+      <div className="flex items-center">
         <Stars score={score} />
         <div>
           {score} ({reviewsCount} Reviews)

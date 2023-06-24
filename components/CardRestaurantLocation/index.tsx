@@ -21,16 +21,16 @@ const Stars: FC<StarsProps> = ({ count = 5, score }) => {
   return (
     <div className="stars flex">
       {Array.from({ length: count }, (_, index) => {
-        if (score - index > 0 && score - index < 1) {
+        const scoreMinusIndex = score - index;
+        if (scoreMinusIndex > 0 && scoreMinusIndex < 1) {
           return (
             <Icon
+              className="fill-color-star stroke-color-star"
               key={index}
-              fill="transparent"
-              stroke="#FFAE5F"
-              strokeWidth={1.3}
+              strokeWidth={1}
               width={24}
               height={24}
-              endPercentage={(score - index) * 100}
+              endPercentage={scoreMinusIndex * 100}
               linearGradientStopColor="#FFAE5F"
               linearGradientLastStopColor="transparent"
             />

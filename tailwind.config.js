@@ -88,6 +88,7 @@ module.exports = {
         'color-vegetarian': 'rgba(var(--color-vegetarian), <alpha-value>)',
         'color-hug': 'rgba(var(--color-hug), <alpha-value>)',
         'color-neutral': 'rgba(var(--color-neutral), <alpha-value>)',
+        'color-star': 'rgba(var(--color-star), <alpha-value>)',
       },
     },
   },

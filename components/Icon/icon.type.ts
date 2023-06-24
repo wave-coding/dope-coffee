@@ -4,6 +4,9 @@ import { SVGProps } from 'react';
 export interface IconProps extends Partial<SVGProps<SVGSVGElement>> {
   size?: string | number;
   absoluteStrokeWidth?: boolean;
+  endPercentage?: number;
+  linearGradientStopColor?: string;
+  linearGradientLastStopColor?: string;
 }
 
 export type Icon = (props: IconProps) => JSX.Element;
@@ -25,6 +28,7 @@ export type IconNames =
   | 'low'
   | 'more'
   | 'minus'
-  | 'add';
+  | 'add'
+  | 'filled-star';
 
 export type IconRecords = Record<IconNames, Icon>;

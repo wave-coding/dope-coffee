@@ -28,8 +28,6 @@ const Stars: FC<StarsProps> = ({ count = 5, score }) => {
               className="fill-color-star stroke-color-star"
               key={index}
               strokeWidth={1}
-              // width={24}
-              // height={24}
               viewBox="-4 -2 24 24"
               end-percentage={scoreMinusIndex * 100}
               stopColor="#FFAE5F"
@@ -45,8 +43,6 @@ const Stars: FC<StarsProps> = ({ count = 5, score }) => {
               fill="#FFAE5F"
               stroke="#FFAE5F"
               strokeWidth={1.3}
-              // width={24}
-              // height={24}
             />
           );
         }
@@ -55,38 +51,78 @@ const Stars: FC<StarsProps> = ({ count = 5, score }) => {
   );
 };
 
-const CardRestaurantLocation: FC<CardRestaurantLocationProps> = ({
+const CardRestaurantLocationHeadline: FC<
+  Pick<CardRestaurantLocationProps, 'name'>
+> = ({ name }) => {
+  const Icon = Icons['filled-star'];
+  return (
+    <div className="title flex items-center justify-between">
+      <h2 className="mb-1 mt-1 text-headline-lg">{name}</h2>
+      <div className="flex w-1/6">
+        <Icon
+          viewBox="-4 -4 24 24"
+          fill="transparent"
+          className="stroke-white"
+        />
+      </div>
+    </div>
+  );
+};
+
+const CardRestaurantLocationType: FC<
+  Pick<CardRestaurantLocationProps, 'type'>
+> = ({ type }) => {
+  return <h3 className="mb-1 mt-1 text-headline-md">{type}</h3>;
+};
+
+const CardRestaurantLocationReview: FC<
+  Pick<CardRestaurantLocationProps, 'reviewsCount' | 'score'>
+> = ({ reviewsCount, score }) => {
+  return (
+    <div className="flex items-center gap-1">
+      <div className="stars w-1/3">
+        <Stars score={score} />
+      </div>
+      <div className="w-2/3">
+        <Scores {...{ reviewsCount, score }} />
+      </div>
+    </div>
+  );
+};
+
+const Scores: FC<
+  Pick<CardRestaurantLocationProps, 'score' | 'reviewsCount'>
+> = ({ score, reviewsCount }) => {
+  return (
+    <>
+      {score} ({reviewsCount} Reviews){' '}
+    </>
+  );
+};
+
+const CardRestaurantLocationDetails: FC<CardRestaurantLocationProps> = ({
   name,
   type,
   score,
   macros,
   reviewsCount,
 }) => {
-  const Icon = Icons['filled-star'];
+  return (
+    <>
+      <CardRestaurantLocationHeadline name={name} />
+      <CardRestaurantLocationType type={type} />
+      <CardRestaurantLocationReview {...{ score, reviewsCount }} />
+      <>
+        <CardDetailsMacros macros={macros} />
+      </>
+    </>
+  );
+};
+
+const CardRestaurantLocation: FC<CardRestaurantLocationProps> = (props) => {
   return (
     <div className="flex w-auto flex-col overflow-hidden rounded-md bg-color-three p-2 pl-3 text-white">
-      <div className="title flex items-center justify-between">
-        <h2 className="mb-1 mt-1 text-headline-lg">{name}</h2>
-        <div className="flex w-1/6">
-          <Icon
-            viewBox="-4 -4 24 24"
-            fill="transparent"
-            className="stroke-white"
-          />
-        </div>
-      </div>
-      <h3 className="mb-1 mt-1 text-headline-md">{type}</h3>
-      <div className="flex items-center gap-1">
-        <div className="stars w-1/3">
-          <Stars score={score} />
-        </div>
-        <div className="w-2/3">
-          {score} ({reviewsCount} Reviews)
-        </div>
-      </div>
-      <div>
-        <CardDetailsMacros macros={macros} />
-      </div>
+      <CardRestaurantLocationDetails {...props} />
     </div>
   );
 };

@@ -62,7 +62,7 @@ const AddCardQuantityItems: FC<CardBasketQuantityItemsProps> = ({
 
 const AddCardContainer: FC<CardBasketQuantityItemsProps> = (props) => {
   return (
-    <div className="flex w-1/5 items-center">
+    <div className="flex w-full items-center">
       <AddCardQuantityItems {...props} />
     </div>
   );

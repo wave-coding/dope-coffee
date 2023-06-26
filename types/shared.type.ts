@@ -8,3 +8,8 @@ export type ChipMicroType = {
 };
 
 export type IntensityType = 'high' | 'low';
+
+export type MacrosType = {
+  type: MacroType;
+  amount: number;
+};

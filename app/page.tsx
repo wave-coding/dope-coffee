@@ -11,9 +11,11 @@ import {
   CardRestaurantLocation,
   CardMenu,
 } from '@/components';
+import { Product } from '@/interfaces/share.interface';
 
 export type ConfigType = {
   Chips: ChipProps[];
+  product: Product;
 };
 const Config: ConfigType = {
   Chips: [
@@ -23,7 +25,39 @@ const Config: ConfigType = {
     { type: 'Vegetarian' },
     { type: 'Fat', intensity: 'low' },
   ],
+  product: {
+    image:
+      'https://cdn.pixabay.com/photo/2016/11/23/18/31/pasta-1854245_1280.jpg',
+    name: 'Beef steak',
+    price: 200,
+    description: 'description',
+    calories: 122,
+    ingredients: ['Shrimp', 'Parmesan', 'Olive', 'Bread'],
+    macros: [
+      {
+        amount: 12,
+        type: 'Carb',
+        intensity: 'low',
+      },
+      {
+        amount: 15,
+        type: 'Protein',
+        intensity: 'high',
+      },
+      {
+        amount: 29,
+        type: 'Fat',
+        intensity: 'low',
+      },
+      {
+        amount: 30,
+        type: 'Vegetarian',
+        intensity: null,
+      },
+    ],
+  },
 };
+
 const Home: FC = () => {
   return (
     <main className="flex flex-col items-center justify-between bg-color-five p-0 font-roboto text-color-three">
@@ -57,26 +91,7 @@ const Home: FC = () => {
         </div>
         <div className="bg-white">
           <h1 className="text-body-lg text-color-two">Frame</h1>
-          <Frame
-            macros={[
-              {
-                amount: 12,
-                type: 'Carb',
-              },
-              {
-                amount: 15,
-                type: 'Protein',
-              },
-              {
-                amount: 29,
-                type: 'Fat',
-              },
-              {
-                amount: 30,
-                type: 'Vegetarian',
-              },
-            ]}
-          />
+          <Frame macros={Config.product.macros} />
         </div>
         <div className="bg-white">
           <h1 className="text-body-lg text-color-two">Legend</h1>
@@ -86,24 +101,9 @@ const Home: FC = () => {
         </div>
         <div className="bg-slate-100 p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">Card Basket</h1>
-          <CardBasket
-            image="https://cdn.pixabay.com/photo/2016/11/23/18/31/pasta-1854245_1280.jpg"
-            name="Beef steak"
-            price={200}
-            quantity={3}
-          />
-          <CardBasket
-            image="https://cdn.pixabay.com/photo/2016/11/23/18/31/pasta-1854245_1280.jpg"
-            name="Beef steak"
-            price={200}
-            quantity={3}
-          />
-          <CardBasket
-            image="https://cdn.pixabay.com/photo/2016/11/23/18/31/pasta-1854245_1280.jpg"
-            name="Beef steak"
-            price={200}
-            quantity={3}
-          />
+          <CardBasket product={Config.product} quantity={3} />
+          <CardBasket product={Config.product} quantity={3} />
+          <CardBasket product={Config.product} quantity={3} />
         </div>
         <div className="bg-slate-100 p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">
@@ -113,23 +113,13 @@ const Home: FC = () => {
             name="Ying bin"
             type="Asian"
             score={4.45}
-            macros={[
-              { type: 'Protein', intensity: 'high' },
-              { type: 'Fat', intensity: 'low' },
-              { type: 'Carb', intensity: 'high' },
-              { type: 'Vegetarian' },
-            ]}
+            macros={Config.product.macros}
             reviewsCount="10k"
           />
         </div>
         <div className="bg-white p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">Card Menu</h1>
-          <CardMenu
-            image="https://cdn.pixabay.com/photo/2021/07/19/16/04/pizza-6478478_1280.jpg"
-            name="Beef steak"
-            price={200}
-            quantity={3}
-          />
+          <CardMenu product={Config.product} quantity={3} />
         </div>
       </div>
     </main>

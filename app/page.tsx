@@ -9,6 +9,7 @@ import {
   Legend,
   CardBasket,
   CardRestaurantLocation,
+  CardMenu,
 } from '@/components';
 
 export type ConfigType = {
@@ -119,6 +120,15 @@ const Home: FC = () => {
               { type: 'Vegetarian' },
             ]}
             reviewsCount="10k"
+          />
+        </div>
+        <div className="bg-white p-1 [&>*]:mt-1">
+          <h1 className="p-2 text-body-lg text-color-two">Card Menu</h1>
+          <CardMenu
+            image="https://cdn.pixabay.com/photo/2021/07/19/16/04/pizza-6478478_1280.jpg"
+            name="Beef steak"
+            price={200}
+            quantity={3}
           />
         </div>
       </div>

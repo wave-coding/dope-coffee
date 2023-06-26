@@ -8,3 +8,4 @@ export { default as Frame } from './Frame';
 export { default as Legend } from './Legend';
 export { default as CardBasket } from './CardBasket';
 export { default as CardRestaurantLocation } from './CardRestaurantLocation';
+export { default as CardMenu } from './CardMenu';

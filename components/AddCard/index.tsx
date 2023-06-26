@@ -1,3 +1,4 @@
+'use client';
 import { FC, useState } from 'react';
 import { handlerType } from '@/types';
 import Icons from '@/components/Icon';

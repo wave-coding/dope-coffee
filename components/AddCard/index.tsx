@@ -1,3 +1,4 @@
+'use client';
 import { FC, useState } from 'react';
 import { handlerType } from '@/types';
 import Icons from '@/components/Icon';
@@ -62,7 +63,7 @@ const AddCardQuantityItems: FC<CardBasketQuantityItemsProps> = ({
 
 const AddCardContainer: FC<CardBasketQuantityItemsProps> = (props) => {
   return (
-    <div className="flex w-1/5 items-center">
+    <div className="flex w-full items-center">
       <AddCardQuantityItems {...props} />
     </div>
   );

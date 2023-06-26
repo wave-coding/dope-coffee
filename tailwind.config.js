@@ -89,6 +89,7 @@ module.exports = {
         'color-hug': 'rgba(var(--color-hug), <alpha-value>)',
         'color-neutral': 'rgba(var(--color-neutral), <alpha-value>)',
         'color-star': 'rgba(var(--color-star), <alpha-value>)',
+        'color-border': 'rgba(var(--color-border), <alpha-value>)',
       },
     },
   },

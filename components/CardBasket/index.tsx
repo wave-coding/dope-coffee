@@ -2,15 +2,16 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import AddCard from '@/components/AddCard';
+import { Product } from '@/interfaces/share.interface';
 
 interface CardBasketProps {
-  name: string;
-  image: string;
-  price: number;
+  product: Pick<Product, 'image' | 'name' | 'price'>;
   quantity: number;
 }
 
-const CardBasketImageBox: FC<Pick<CardBasketProps, 'image'>> = ({ image }) => {
+const CardBasketImageBox: FC<Pick<CardBasketProps, 'product'>> = ({
+  product: { image },
+}) => {
   return (
     <Image
       className="mr-2"
@@ -22,9 +23,8 @@ const CardBasketImageBox: FC<Pick<CardBasketProps, 'image'>> = ({ image }) => {
   );
 };
 
-const CardBasketProductDetails: FC<Pick<CardBasketProps, 'name' | 'price'>> = ({
-  price,
-  name,
+const CardBasketProductDetails: FC<Pick<CardBasketProps, 'product'>> = ({
+  product: { name, price },
 }) => {
   return (
     <div className="flex w-3/5">
@@ -39,17 +39,14 @@ const CardBasketProductDetails: FC<Pick<CardBasketProps, 'name' | 'price'>> = ({
   );
 };
 
-const CardBasket: FC<CardBasketProps> = ({
-  name,
-  image,
-  price,
-  quantity = 1,
-}) => {
+const CardBasket: FC<CardBasketProps> = ({ product, quantity = 1 }) => {
   return (
-    <div className="flex w-auto justify-between overflow-hidden rounded-md bg-white pr-2 text-color-neutral/90">
-      <CardBasketImageBox image={image} />
-      <CardBasketProductDetails name={name} price={price} />
-      <AddCard quantity={quantity} />
+    <div className="flex w-auto items-center justify-between overflow-hidden rounded-md bg-white pr-2 text-color-neutral/90">
+      <CardBasketImageBox product={product} />
+      <CardBasketProductDetails product={product} />
+      <div className="w-1/4">
+        <AddCard quantity={quantity} />
+      </div>
     </div>
   );
 };

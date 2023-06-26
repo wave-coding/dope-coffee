@@ -14,19 +14,20 @@ interface CardMenuProps {
 
 type makeBulletListInputType = MacrosType & { total: number; key: number };
 
-const CardMenuImageBoxContainer: FC<Pick<CardMenuProps, 'product'>> = ({
-  product,
+const CardMenuImageBoxContainer: FC<Pick<Product, 'image' | 'calories'>> = ({
+  calories,
+  image,
 }) => {
   return (
     <div className="relative mr-1">
-      <CardMenuImageBox product={product} />
-      <CardMenuImageBoxCalorie product={product} />
+      <CardMenuImageBox image={image} />
+      <CardMenuImageBoxCalorie calories={calories} />
     </div>
   );
 };
 
-const CardMenuImageBoxCalorie: FC<Pick<CardMenuProps, 'product'>> = ({
-  product: { calories },
+const CardMenuImageBoxCalorie: FC<Pick<Product, 'calories'>> = ({
+  calories,
 }) => {
   return (
     <div className="absolute bottom-1 left-1 rounded-lg bg-color-three p-0 px-2 text-body-md text-color-neutral/80">
@@ -35,9 +36,7 @@ const CardMenuImageBoxCalorie: FC<Pick<CardMenuProps, 'product'>> = ({
   );
 };
 
-const CardMenuImageBox: FC<Pick<CardMenuProps, 'product'>> = ({
-  product: { image },
-}) => {
+const CardMenuImageBox: FC<Pick<Product, 'image'>> = ({ image }) => {
   return (
     <div className="h-full w-full">
       <Image
@@ -51,9 +50,7 @@ const CardMenuImageBox: FC<Pick<CardMenuProps, 'product'>> = ({
   );
 };
 
-const MacroBullets: FC<Pick<CardMenuProps, 'product'>> = ({
-  product: { macros },
-}) => {
+const MacroBullets: FC<Pick<Product, 'macros'>> = ({ macros }) => {
   const total = calculateSumOfMacros(macros);
 
   return (
@@ -85,48 +82,47 @@ const makeMacroBulletList = ({
   );
 };
 
-const CardMenuDetailsHeadline: FC<Pick<CardMenuProps, 'product'>> = ({
-  product,
+const CardMenuDetailsHeadline: FC<Pick<Product, 'ingredients' | 'name'>> = ({
+  ingredients,
+  name,
 }) => {
   return (
     <div className="flex w-full flex-col">
-      <h2 className="mt-1 text-subtitle-lg">{product?.name}</h2>
+      <h2 className="mt-1 text-subtitle-lg">{name}</h2>
       <h4 className="ingredients mb-1 mt-1 text-label-sm">
-        {product.ingredients.join(', ')}
+        {ingredients?.join(', ')}
       </h4>
     </div>
   );
 };
 
-const CardMenuProductDetailsItems: FC<Pick<CardMenuProps, 'product'>> = ({
-  product,
-}) => {
+const CardMenuProductDetailsItems: FC<
+  Pick<Product, 'macros' | 'ingredients' | 'name'>
+> = ({ macros, ingredients, name }) => {
   return (
     <>
-      <CardMenuDetailsHeadline product={product} />
-      <Frame macros={product?.macros} />
-      <MacroBullets product={product} />
+      <CardMenuDetailsHeadline {...{ ingredients, name }} />
+      <Frame macros={macros} />
+      <MacroBullets macros={macros} />
     </>
   );
 };
 
-const CardMenuProductDetailsContainer: FC<Pick<CardMenuProps, 'product'>> = ({
-  product,
-}) => {
+const CardMenuProductDetailsContainer: FC<
+  Pick<Product, 'macros' | 'ingredients' | 'name'>
+> = ({ macros, ingredients, name }) => {
   return (
     <div className="flex w-full flex-col">
-      <CardMenuProductDetailsItems product={product} />
+      <CardMenuProductDetailsItems {...{ macros, name, ingredients }} />
     </div>
   );
 };
 
-const CardMenuProductPrice: FC<Pick<CardMenuProps, 'product'>> = ({
-  product,
-}) => {
+const CardMenuProductPrice: FC<Pick<Product, 'price'>> = ({ price }) => {
   return (
     <h5 className="text-body-lg">
       <span className="text-color-neutral/70">$</span>
-      {product?.price}
+      {price}
     </h5>
   );
 };
@@ -147,7 +143,7 @@ const CardMenuProductPriceAndQuantity: FC<CardMenuProps> = ({
 }) => {
   return (
     <>
-      <CardMenuProductPrice product={product} />
+      <CardMenuProductPrice {...product} />
       <CardMenuProductQuantity quantity={quantity} />
     </>
   );
@@ -164,7 +160,7 @@ const CardMenuProductPriceAndQuantityContainer: FC<CardMenuProps> = (props) => {
 const CardMenuDetails: FC<CardMenuProps> = ({ product, quantity }) => {
   return (
     <>
-      <CardMenuProductDetailsContainer product={product} />
+      <CardMenuProductDetailsContainer {...product} />
       <CardMenuProductPriceAndQuantityContainer
         product={product}
         quantity={quantity}
@@ -183,7 +179,7 @@ const CardMenuDetailsContainer: FC<CardMenuProps> = (props) => {
 
 const CardMenu: FC<CardMenuProps> = (props) => (
   <div className="flex w-auto overflow-hidden rounded-md border border-color-border bg-white pr-2 text-color-neutral/90">
-    <CardMenuImageBoxContainer {...props} />
+    <CardMenuImageBoxContainer {...props?.product} />
     <CardMenuDetailsContainer {...props} />
   </div>
 );

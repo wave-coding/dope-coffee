@@ -4,9 +4,9 @@ import { SVGProps } from 'react';
 export interface IconProps extends Partial<SVGProps<SVGSVGElement>> {
   size?: string | number;
   absoluteStrokeWidth?: boolean;
-  endPercentage?: number;
-  linearGradientStopColor?: string;
-  linearGradientLastStopColor?: string;
+  'end-percentage'?: number;
+  'linear-gradient-stop-color'?: string;
+  'linear-gradient-last-stop-color'?: string;
 }
 
 export type Icon = (props: IconProps) => JSX.Element;

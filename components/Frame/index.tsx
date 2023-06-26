@@ -1,11 +1,7 @@
 import { FC } from 'react';
-import { MacroType } from '@/types';
+import { MacrosType } from '@/types';
 import { COLOR_VARIANTS } from '@/shared';
-
-export type MacrosType = {
-  type: MacroType;
-  amount: number;
-};
+import { calculateSumOfMacros, getWidthPercentageString } from '@/utils';
 
 export interface FrameProps {
   macros: MacrosType[];
@@ -13,17 +9,13 @@ export interface FrameProps {
 
 type makeFrameListInputType = MacrosType & { total: number; key: number };
 
-const calculateSumOfMacros = (macros: MacrosType[]) => {
-  return macros.reduce((sum, macro) => sum + macro.amount, 0);
-};
-
 const makeFrameList = ({
   amount,
   type,
   total,
   key,
 }: makeFrameListInputType) => {
-  const widthPercentage = `${(amount / total) * 100}%`;
+  const widthPercentage = getWidthPercentageString({ amount, total });
   return (
     <div
       className={`${COLOR_VARIANTS[type]} mr-0.5 flex h-2 first:rounded-l-md last:mr-0 last:rounded-r-md`}

@@ -1,8 +1,7 @@
 'use client';
 import { FC } from 'react';
 import Image from 'next/image';
-import Frame from '../Frame';
-import AddCard from '../AddCard';
+import { Frame, AddCard } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 import { calculateSumOfMacros, getWidthPercentageString } from '@/utils';
 import { MacrosType } from '@/types';

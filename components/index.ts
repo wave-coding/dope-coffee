@@ -1,6 +1,7 @@
 export { default as AddCard } from './AddCard';
 export { default as Card } from './Card';
 export { default as CardBasket } from './CardBasket';
+export { default as CardDeliver } from './CardDeliver';
 export { default as CardMenu } from './CardMenu';
 export { default as CardRestaurantLocation } from './CardRestaurantLocation';
 export { default as Chip } from './Chip';

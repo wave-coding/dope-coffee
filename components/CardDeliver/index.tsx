@@ -1,23 +1,15 @@
 import { FC } from 'react';
 import Icons from '../Icon';
+import { getStrokeAndFillColors } from '@/utils';
 
 interface CardDeliverProps {
   fullName: string;
   phone: string;
   address: string;
-  isActiveAddress?: boolean;
+  isActive?: boolean;
 }
 
-const getStrokeAndFillColors = (
-  isActiveAddress?: boolean
-): { stroke: string; fill: string } => {
-  return {
-    stroke: isActiveAddress ? '#FFAE5F' : '#999999',
-    fill: isActiveAddress ? '#FFAE5F' : 'transparent',
-  };
-};
-
-const CardDeliverUserDetails: FC<Omit<CardDeliverProps, 'isActiveAddress'>> = ({
+const CardDeliverUserDetails: FC<Omit<CardDeliverProps, 'isActive'>> = ({
   address,
   fullName,
   phone,
@@ -31,9 +23,7 @@ const CardDeliverUserDetails: FC<Omit<CardDeliverProps, 'isActiveAddress'>> = ({
   );
 };
 
-const CardDeliverDetails: FC<Omit<CardDeliverProps, 'isActiveAddress'>> = (
-  props
-) => {
+const CardDeliverDetails: FC<Omit<CardDeliverProps, 'isActive'>> = (props) => {
   return (
     <>
       <h2 className="mb-1 text-body-lg text-neutral-900">Deliver to</h2>
@@ -42,9 +32,9 @@ const CardDeliverDetails: FC<Omit<CardDeliverProps, 'isActiveAddress'>> = (
   );
 };
 
-const CardDeliverDetailsContainer: FC<
-  Omit<CardDeliverProps, 'isActiveAddress'>
-> = (props) => {
+const CardDeliverDetailsContainer: FC<Omit<CardDeliverProps, 'isActive'>> = (
+  props
+) => {
   return (
     <div className="text-label-sm text-neutral-500">
       <CardDeliverDetails {...props} />
@@ -52,11 +42,11 @@ const CardDeliverDetailsContainer: FC<
   );
 };
 
-const CardDeliverStar: FC<Pick<CardDeliverProps, 'isActiveAddress'>> = ({
-  isActiveAddress,
+const CardDeliverStar: FC<Pick<CardDeliverProps, 'isActive'>> = ({
+  isActive,
 }) => {
   const Icon = Icons['filled-star'];
-  const { fill, stroke } = getStrokeAndFillColors(isActiveAddress);
+  const { fill, stroke } = getStrokeAndFillColors(isActive);
   return (
     <>
       <Icon
@@ -70,9 +60,9 @@ const CardDeliverStar: FC<Pick<CardDeliverProps, 'isActiveAddress'>> = ({
   );
 };
 
-const CardDeliverStarContainer: FC<
-  Pick<CardDeliverProps, 'isActiveAddress'>
-> = (props) => {
+const CardDeliverStarContainer: FC<Pick<CardDeliverProps, 'isActive'>> = (
+  props
+) => {
   return (
     <div className="star flex w-1/5 content-center items-center justify-center">
       <CardDeliverStar {...props} />

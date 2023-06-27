@@ -11,3 +11,5 @@ export { default as Legend } from './Legend';
 export { default as NavigationBottom } from './NavigationBottom';
 export { default as NumberButton } from './NumberButton';
 export { default as Button } from './Button';
+export { default as Accordion } from './Accordion';
+export { default as List } from './List';

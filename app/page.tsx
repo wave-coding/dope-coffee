@@ -10,6 +10,7 @@ import {
   CardBasket,
   CardRestaurantLocation,
   CardMenu,
+  CardDeliver,
 } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 
@@ -120,6 +121,16 @@ const Home: FC = () => {
         <div className="bg-white p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">Card Menu</h1>
           <CardMenu product={Config.product} quantity={3} />
+        </div>
+        <div className="bg-white p-1 [&>*]:mt-1">
+          <h1 className="p-2 text-body-lg text-color-two">Card Deliver</h1>
+          {/* <CardMenu product={Config.product} quantity={3} /> */}
+          <CardDeliver
+            fullName="Hanieh kaheli"
+            phone="+31 6 20 00 00 00"
+            address="Oudwijkerdwarsstraat 151"
+            isActiveAddress={false}
+          />
         </div>
       </div>
     </main>

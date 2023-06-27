@@ -121,7 +121,7 @@ const CardRestaurantLocationDetails: FC<CardRestaurantLocationProps> = ({
 
 const CardRestaurantLocation: FC<CardRestaurantLocationProps> = (props) => {
   return (
-    <div className="flex w-auto flex-col overflow-hidden rounded-md bg-color-three p-2 pl-3 text-white">
+    <div className="flex w-auto flex-col overflow-hidden rounded-md bg-color-three p-2 pl-3 text-white shadow-sm shadow-color-neutral/20">
       <CardRestaurantLocationDetails {...props} />
     </div>
   );

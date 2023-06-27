@@ -19,3 +19,12 @@ export const getWidthPercentageString = (
   const width = getWidthPercentage(input);
   return `${width}%`;
 };
+
+export const getStrokeAndFillColors = (
+  isActive?: boolean
+): { stroke: string; fill: string } => {
+  return {
+    stroke: isActive ? '#FFAE5F' : '#999999',
+    fill: isActive ? '#FFAE5F' : 'transparent',
+  };
+};

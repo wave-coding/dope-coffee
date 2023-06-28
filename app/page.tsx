@@ -13,6 +13,7 @@ import {
   CardDeliver,
   Accordion,
   List,
+  Input,
 } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 
@@ -140,6 +141,10 @@ const Home: FC = () => {
         <div className="bg-white p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">Accordion</h1>
           <List name={'zoheir'} />
+        </div>
+        <div className="bg-slate-200 p-1 [&>*]:mt-1">
+          <h1 className="p-2 text-body-lg text-color-two">Accordion</h1>
+          <Input />
         </div>
       </div>
     </main>

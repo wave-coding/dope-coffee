@@ -16,6 +16,7 @@ import {
   Input,
   Select,
   FilterChip,
+  Button,
 } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 
@@ -160,6 +161,14 @@ const Home: FC = () => {
             {Config.Chips.map((chip, index) => {
               return <FilterChip {...chip} key={index} />;
             })}
+          </div>
+        </div>
+        <div className="flex flex-grow flex-col bg-slate-200 p-1 [&>*]:mt-1">
+          <h1 className="p-2 text-body-lg text-color-two">Filter Chip</h1>
+          <div className="flex flex-row">
+            <Button type="primary" text={'Button'} />
+            <Button type="secondary" text={'Button'} />
+            <Button type="text" text={'Button'} hasStar={false} />
           </div>
         </div>
       </div>

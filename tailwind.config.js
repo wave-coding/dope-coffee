@@ -90,6 +90,10 @@ module.exports = {
         'color-neutral': 'rgba(var(--color-neutral), <alpha-value>)',
         'color-star': 'rgba(var(--color-star), <alpha-value>)',
         'color-border': 'rgba(var(--color-border), <alpha-value>)',
+        'color-secondary-light':
+          'rgba(var(--color-secondary-light), <alpha-value>)',
+        'color-secondary-dark':
+          'rgba(var(--color-secondary-dark), <alpha-value>)',
       },
     },
   },

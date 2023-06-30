@@ -20,5 +20,7 @@
     --color-neutral: 34, 34, 34;
     --color-star: 255, 174, 95;
     --color-border: 245, 245, 245;
+    --color-secondary-light: 124, 91, 177;
+    --color-secondary-dark: 86, 63, 123;
   }
 }

@@ -14,6 +14,7 @@ import {
   Accordion,
   List,
   Input,
+  Select,
 } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 
@@ -139,11 +140,17 @@ const Home: FC = () => {
           <Accordion name={'zoheir'} isActive={false} />
         </div>
         <div className="bg-white p-1 [&>*]:mt-1">
-          <h1 className="p-2 text-body-lg text-color-two">Accordion</h1>
+          <h1 className="p-2 text-body-lg text-color-two">List</h1>
+          <List name={'zoheir'} />
+          <List name={'zoheir'} />
           <List name={'zoheir'} />
         </div>
         <div className="bg-slate-200 p-1 [&>*]:mt-1">
-          <h1 className="p-2 text-body-lg text-color-two">Accordion</h1>
+          <h1 className="p-2 text-body-lg text-color-two">Select</h1>
+          <Select options={['first', 'second']} />
+        </div>
+        <div className="bg-slate-200 p-1 [&>*]:mt-1">
+          <h1 className="p-2 text-body-lg text-color-two">input</h1>
           <Input />
         </div>
       </div>

@@ -1,27 +1,9 @@
 'use client';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Icons from '@/components/Icon';
-import { ChangeEvent, useState } from 'react';
-// import Icons from '../Icon';
 
 interface SelectProps {
   options: string[];
-}
-
-interface InputFieldProps {
-  handler: (e: ChangeEvent<HTMLInputElement>) => void;
-  input: string;
-}
-
-interface CloseIconProps {
-  handler: () => void;
-  input: string;
-}
-
-interface InputContainerProps {
-  clickHandler: () => void;
-  changeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
-  input: string;
 }
 
 const Select: FC<SelectProps> = ({ options }) => {

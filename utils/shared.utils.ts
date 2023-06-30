@@ -28,3 +28,7 @@ export const getStrokeAndFillColors = (
     fill: isActive ? '#FFAE5F' : 'transparent',
   };
 };
+
+export const capitalizeFirstLetter = (text: string) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};

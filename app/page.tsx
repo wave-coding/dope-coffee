@@ -15,6 +15,7 @@ import {
   List,
   Input,
   Select,
+  FilterChip,
 } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 
@@ -152,6 +153,14 @@ const Home: FC = () => {
         <div className="bg-slate-200 p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">input</h1>
           <Input />
+        </div>
+        <div className="flex flex-grow flex-col bg-slate-200 p-1 [&>*]:mt-1">
+          <h1 className="p-2 text-body-lg text-color-two">Filter Chip</h1>
+          <div className="flex">
+            {Config.Chips.map((chip, index) => {
+              return <FilterChip {...chip} key={index} />;
+            })}
+          </div>
         </div>
       </div>
     </main>

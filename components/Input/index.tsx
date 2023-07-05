@@ -59,8 +59,14 @@ const InputContainer: FC<InputContainerProps> = ({
   );
 };
 
-const Input: FC = () => {
-  const [input, setInput] = useState('');
+type UseInputType = (defaultValue: string) => {
+  input: string;
+  handleInputChange: ChangeEventHandler<HTMLInputElement>;
+  handleClearClick: () => void;
+};
+
+const useInput: UseInputType = (defaultValue: string) => {
+  const [input, setInput] = useState(defaultValue);
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setInput(e.target.value);
@@ -69,6 +75,17 @@ const Input: FC = () => {
   const handleClearClick = () => {
     setInput('');
   };
+
+  return {
+    input,
+    handleInputChange,
+    handleClearClick,
+  };
+};
+
+const Input: FC = () => {
+  const { input, handleClearClick, handleInputChange } = useInput('');
+
   return (
     <InputContainer
       changeHandler={handleInputChange}

@@ -11,8 +11,26 @@ const FilterChipText: FC<ChipMicroType> = ({ type, intensity }) => {
   return <h3 className="body-lg">{text}</h3>;
 };
 
+type UseEnableType = (defaultValue: boolean) => {
+  enabled: boolean;
+  toggleEnabled: () => void;
+};
+
+const useEnable: UseEnableType = (defaultValue: boolean) => {
+  const [enabled, setEnabled] = useState(defaultValue);
+
+  const toggleEnabled = () => {
+    setEnabled(!enabled);
+  };
+
+  return {
+    enabled,
+    toggleEnabled,
+  };
+};
+
 const FilterChipContainer: FC<ChipMicroType> = (props) => {
-  const [enabled, setEnabled] = useState(false);
+  const { enabled, toggleEnabled } = useEnable(false);
   const className = clsx(
     'mr-1',
     'cursor-pointer',
@@ -29,12 +47,7 @@ const FilterChipContainer: FC<ChipMicroType> = (props) => {
   );
 
   return (
-    <div
-      onClick={() => {
-        setEnabled(!enabled);
-      }}
-      className={className}
-    >
+    <div onClick={toggleEnabled} className={className}>
       <FilterChipText {...props} />
     </div>
   );

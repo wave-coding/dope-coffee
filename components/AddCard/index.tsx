@@ -3,6 +3,11 @@ import { FC, useState } from 'react';
 import { handlerType } from '@/types';
 import Icons from '@/components/Icon';
 
+type UseQuantityType = (initialValue: number) => {
+  quantityValue: number;
+  handleIncrease: () => void;
+  handleDecrease: () => void;
+};
 interface CardBasketQuantityItemsProps {
   increaseHandler: handlerType;
   decreaseHandler: handlerType;
@@ -69,10 +74,8 @@ const AddCardContainer: FC<CardBasketQuantityItemsProps> = (props) => {
   );
 };
 
-const AddCard: FC<Pick<CardBasketQuantityItemsProps, 'quantity'>> = ({
-  quantity = 1,
-}) => {
-  const [quantityValue, setQuantityValue] = useState(quantity);
+const useQuantity: UseQuantityType = (initialValue: number) => {
+  const [quantityValue, setQuantityValue] = useState(initialValue);
 
   const handleIncrease = () => {
     setQuantityValue(quantityValue + 1);
@@ -83,6 +86,19 @@ const AddCard: FC<Pick<CardBasketQuantityItemsProps, 'quantity'>> = ({
       setQuantityValue(quantityValue - 1);
     }
   };
+
+  return {
+    quantityValue,
+    handleIncrease,
+    handleDecrease,
+  };
+};
+
+const AddCard: FC<Pick<CardBasketQuantityItemsProps, 'quantity'>> = ({
+  quantity = 1,
+}) => {
+  const { quantityValue, handleDecrease, handleIncrease } =
+    useQuantity(quantity);
 
   return (
     <AddCardContainer

@@ -65,7 +65,7 @@ const Button: FC<ButtonProps> = ({ type, ...rest }) => {
 
   const { selected, toggleSelected } = useButtonState(false);
 
-  const className = `flex content-center items-center justify-center rounded-md p-1 text-body-md ${
+  const className = `flex w-full h-full content-center items-center justify-center rounded-md p-1 text-body-md ${
     color[selected ? 'selected' : 'enabled']
   }`;
 

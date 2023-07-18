@@ -66,7 +66,7 @@ const Config: ConfigType = {
   },
 };
 
-const Home: FC = () => {
+const Components: FC = () => {
   return (
     <main className="flex flex-col items-center justify-between bg-color-five p-0 font-roboto text-color-three">
       <div className="min-w-full bg-white">
@@ -184,4 +184,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default Components;

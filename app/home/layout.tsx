@@ -13,13 +13,12 @@ interface HomeLayoutProps {
 
 const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
   return (
-    <>
-      <header>head er</header>
-      <section>{children}</section>
-      <div className="absolute bottom-0 w-full  pt-2 shadow-[0px_-5px_5px_-5px_rgb(0,0,0,0.3)]">
+    <div className="bg-color-six">
+      <div className="mx-auto mb-28 h-max">{children}</div>
+      <div className="fixed bottom-0 z-20 w-full pt-2 shadow-[0px_-5px_5px_-5px_rgb(0,0,0,0.3)]">
         <NavigationBottom />
       </div>
-    </>
+    </div>
   );
 };
 

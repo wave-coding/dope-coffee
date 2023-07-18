@@ -37,7 +37,7 @@ const Banner: FC<BannerProps> = () => {
       </Link>
     </div>,
     // eslint-disable-next-line react/jsx-key
-    <div className="flex w-full flex-col  p-2">
+    <div className="flex w-full flex-col p-2">
       <header>
         <h1>High protein Lunch</h1>
       </header>
@@ -49,7 +49,7 @@ const Banner: FC<BannerProps> = () => {
       </Link>
     </div>,
   ];
-  return <SwiperSlider hasPaddingBottom items={items} />;
+  return <SwiperSlider hasPaddingBottom={true} items={items} />;
 };
 
 export default Banner;

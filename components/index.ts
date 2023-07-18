@@ -16,3 +16,5 @@ export { default as Input } from './Input';
 export { default as Select } from './Select';
 export { default as FilterChip } from './FilterChip';
 export { default as Button } from './Button';
+export { default as Banner } from './Banner';
+export { default as SwiperSlider } from './SwiperSlider';

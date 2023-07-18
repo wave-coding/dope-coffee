@@ -22,7 +22,7 @@
     --color-border: 245, 245, 245;
     --color-secondary-light: 124, 91, 177;
     --color-secondary-dark: 86, 63, 123;
-
+    --swiper-navigation-color: white;
   }
 }
 
@@ -51,4 +51,12 @@
   background: #999;
   width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 10px));
   height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 10px));
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  background: #90B15B;
+  padding: 1.6rem;
+  border-radius: .3rem;
 }

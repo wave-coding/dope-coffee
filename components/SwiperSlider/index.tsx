@@ -1,14 +1,15 @@
 'use client';
 import { FC, ReactNode } from 'react';
-import { Pagination } from 'swiper/modules';
+import clsx from 'clsx';
+import { Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperProps } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types';
 import 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import '@/app/globals.css';
-import clsx from 'clsx';
 
 export type SwiperConfigs = SwiperProps & SwiperOptions;
 
@@ -19,7 +20,7 @@ interface SwiperSliderProps {
 }
 
 const SWIPER_CONFIGS: SwiperConfigs = {
-  modules: [Pagination],
+  modules: [Pagination, Navigation],
   slidesPerView: 1,
   pagination: { clickable: true },
   scrollbar: { draggable: true },
@@ -28,7 +29,7 @@ const SWIPER_CONFIGS: SwiperConfigs = {
 const SwiperSlider: FC<SwiperSliderProps> = ({
   items,
   configs,
-  hasPaddingBottom,
+  hasPaddingBottom = false,
 }) => {
   const settings = {
     ...SWIPER_CONFIGS,

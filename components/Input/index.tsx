@@ -52,7 +52,7 @@ const InputContainer: FC<InputContainerProps> = ({
   input,
 }) => {
   return (
-    <div className="flex h-full items-center justify-between overflow-hidden rounded-md bg-white px-2 text-gray-400">
+    <div className="flex h-full w-full items-center justify-between overflow-hidden rounded-md bg-white px-2 text-gray-400">
       <InputField handler={changeHandler} input={input} />
       <CloseIcon handler={clickHandler} input={input} />
     </div>

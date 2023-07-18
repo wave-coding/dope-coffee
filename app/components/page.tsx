@@ -17,6 +17,7 @@ import {
   Select,
   FilterChip,
   Button,
+  Banner,
 } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 
@@ -171,6 +172,13 @@ const Home: FC = () => {
             <Button type="text" text={'Button'} hasStar={false} />
           </div>
         </div>
+        <div className="bg-slate-200 p-1 [&>*]:mt-1">
+          <h1 className="p-2 text-body-lg text-color-two">Banner</h1>
+          <div className="block"></div>
+        </div>
+      </div>
+      <div className="w-full">
+        <Banner />
       </div>
     </main>
   );

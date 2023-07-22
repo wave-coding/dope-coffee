@@ -21,7 +21,7 @@ const Banner: FC<BannerProps> = () => {
         <span>Enjoy your break with these high protein selection </span>
       </div>
       <Link className="w-fit" href={''}>
-        <Button hasStar={false} type="primary" text="Check them out" />
+        <Button type="primary" text="Check them out" />
       </Link>
     </div>,
     // eslint-disable-next-line react/jsx-key
@@ -33,7 +33,7 @@ const Banner: FC<BannerProps> = () => {
         <span>Enjoy your break with these high protein selection </span>
       </div>
       <Link className="w-fit" href={''}>
-        <Button hasStar={false} type="primary" text="Check them out" />
+        <Button type="primary" text="Check them out" />
       </Link>
     </div>,
     // eslint-disable-next-line react/jsx-key
@@ -45,7 +45,7 @@ const Banner: FC<BannerProps> = () => {
         <span>Enjoy your break with these high protein selection </span>
       </div>
       <Link className="w-fit" href={''}>
-        <Button hasStar={false} type="primary" text="Check them out" />
+        <Button type="primary" text="Check them out" />
       </Link>
     </div>,
   ];

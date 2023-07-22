@@ -169,7 +169,7 @@ const Components: FC = () => {
           <div className="flex flex-row">
             <Button type="primary" text={'Button'} />
             <Button type="secondary" text={'Button'} />
-            <Button type="text" text={'Button'} hasStar={false} />
+            <Button type="text" text={'Button'} />
           </div>
         </div>
         <div className="bg-slate-200 p-1 [&>*]:mt-1">

@@ -14,16 +14,22 @@ const Banner: FC<BannerProps> = () => {
   const item = (
     <div className="flex w-full flex-col rounded-lg bg-color-dark px-6 py-4">
       <header className="mb-3">
-        <h1 className="text-headline-lg">High protein Lunch</h1>
+        <h1 className="title text-headline-lg text-white">
+          High protein Lunch
+        </h1>
       </header>
-      <div className="mb-3">
-        <span className="text-body-md">
+      <div className="description mb-3">
+        <span className="text-body-md text-neutral-200">
           Enjoy your break with <br />
           these high protein selection
         </span>
       </div>
-      <Link className="w-fit" href={''}>
-        <Button type="primary" text="Check them out" />
+      <Link className="link w-fit" href={''}>
+        <Button
+          classNames="px-4 py-3 text-body-md text-neutral-100"
+          type="primary"
+          text="Check them out"
+        />
       </Link>
     </div>
   );

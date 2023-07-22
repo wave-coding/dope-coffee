@@ -9,7 +9,7 @@ const FilterButton = () => {
           iconProps={{ viewBox: '2 -2 16 24' }}
           iconName="filter"
           text="Filter"
-          classNames="justify-evenly"
+          classNames="justify-evenly py-2"
         />
       </div>
     </div>

@@ -1,33 +1,24 @@
-import Link from 'next/link';
-import { ReactNode } from 'react';
-import { SwiperSlider } from '@/components';
+import { Button, Input } from '@/components';
 
-const RecentOrders = (cards: ReactNode[]) => {
+const FilterForm = () => {
   return (
-    <div className="popular mt-8">
-      <header className="mb-2 flex items-center justify-between">
-        <h2 className="text-headline-lg text-color-neutral/90">Popular</h2>
-        <Link className="text-body-md text-color-neutral/50" href={''}>
-          See More
-        </Link>
-      </header>
-      <div>
-        <SwiperSlider
-          configs={{
-            slidesPerView: 2,
-            spaceBetween: 10,
-            pagination: false,
-            grabCursor: true,
-            style: {
-              overflow: 'visible',
-            },
-          }}
-          hasPaddingBottom={false}
-          items={cards}
-        />
+    <div className="my-2 flex w-full justify-between gap-3">
+      <div className="flex w-10/12">
+        <Input placeHolder="Search by place or item" />
+      </div>
+      <div className="flex w-2/12">
+        <div className="h-full w-full">
+          <Button
+            type="primary"
+            iconProps={{ viewBox: '2 -2 16 24' }}
+            iconName="filter"
+            text="Filter"
+            classNames="justify-evenly"
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default RecentOrders;
+export default FilterForm;

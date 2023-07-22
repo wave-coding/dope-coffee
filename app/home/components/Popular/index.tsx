@@ -8,7 +8,7 @@ interface RecentOrdersProps {
 
 const RecentOrders: FC<RecentOrdersProps> = ({ cards }) => {
   return (
-    <div className="popular mt-8">
+    <div className="popular mt-5">
       <header className="mb-2 flex items-center justify-between">
         <h2 className="text-headline-lg text-color-neutral/90">Popular</h2>
         <Link className="text-body-md text-color-neutral/50" href={''}>

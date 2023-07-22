@@ -11,45 +11,36 @@ interface BannerProps {
 }
 
 const Banner: FC<BannerProps> = () => {
-  const items = [
-    // eslint-disable-next-line react/jsx-key
-    <div className="flex w-full flex-col p-2">
-      <header>
-        <h1>High protein Lunch</h1>
+  const item = (
+    <div className="flex w-full flex-col rounded-lg bg-color-dark px-6 py-4">
+      <header className="mb-3">
+        <h1 className="text-headline-lg">High protein Lunch</h1>
       </header>
-      <div>
-        <span>Enjoy your break with these high protein selection </span>
+      <div className="mb-3">
+        <span className="text-body-md">
+          Enjoy your break with <br />
+          these high protein selection
+        </span>
       </div>
       <Link className="w-fit" href={''}>
         <Button type="primary" text="Check them out" />
       </Link>
-    </div>,
-    // eslint-disable-next-line react/jsx-key
-    <div className="flex w-full flex-col  p-2">
-      <header>
-        <h1>High protein Lunch</h1>
-      </header>
-      <div>
-        <span>Enjoy your break with these high protein selection </span>
-      </div>
-      <Link className="w-fit" href={''}>
-        <Button type="primary" text="Check them out" />
-      </Link>
-    </div>,
-    // eslint-disable-next-line react/jsx-key
-    <div className="flex w-full flex-col p-2">
-      <header>
-        <h1>High protein Lunch</h1>
-      </header>
-      <div>
-        <span>Enjoy your break with these high protein selection </span>
-      </div>
-      <Link className="w-fit" href={''}>
-        <Button type="primary" text="Check them out" />
-      </Link>
-    </div>,
-  ];
-  return <SwiperSlider hasPaddingBottom={true} items={items} />;
+    </div>
+  );
+
+  const items = Array(3).fill(item);
+
+  return (
+    <SwiperSlider
+      configs={{
+        wrapperClass: 'banner',
+        containerModifierClass: 'banner',
+        className: 'banner',
+      }}
+      hasPaddingBottom={true}
+      items={items}
+    />
+  );
 };
 
 export default Banner;

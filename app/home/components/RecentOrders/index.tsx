@@ -7,7 +7,7 @@ interface RecentOrdersProps {
 
 const RecentOrders: FC<RecentOrdersProps> = ({ cards }) => {
   return (
-    <div className="recent-orders mt-8">
+    <div className="recent-orders mt-5">
       <header className="mb-2 flex items-center justify-between">
         <h2 className="text-headline-lg text-color-neutral/90">
           Recent Orders

@@ -1,6 +1,7 @@
 'use client';
 import { FC, useState } from 'react';
 import Icons from '@/components/Icon';
+import { IconNames, IconProps } from '@/components/Icon/icon.type';
 
 const BUTTON_COLORS = {
   primary: {
@@ -22,13 +23,26 @@ type ButtonTypes = 'primary' | 'secondary' | 'text';
 interface ButtonProps {
   type: ButtonTypes;
   text: string;
-  hasStar?: boolean;
+  iconName?: IconNames;
+  iconProps?: IconProps;
+  classNames?: string;
 }
 
-const ButtonStar: FC<Pick<ButtonProps, 'hasStar'>> = ({ hasStar }) => {
-  const Icon = Icons['star'];
+const ButtonIcon: FC<Pick<ButtonProps, 'iconName' | 'iconProps'>> = ({
+  iconName,
+  iconProps,
+}) => {
+  const Icon = iconName ? Icons[iconName] : null;
   return (
-    <>{hasStar ?? <Icon className="w-2/12 fill-white" viewBox="0 1 33 24" />}</>
+    <>
+      {Icon ? (
+        <Icon
+          className="w-2/12 fill-white"
+          viewBox="0 1 33 24"
+          {...iconProps}
+        />
+      ) : null}
+    </>
   );
 };
 
@@ -39,13 +53,11 @@ const ButtonText: FC<Pick<ButtonProps, 'text'>> = ({ text }) => {
 const ButtonContentContainer: FC<Omit<ButtonProps, 'type'>> = (props) => {
   return (
     <>
-      <ButtonStar {...props} />
+      <ButtonIcon {...props} />
       <ButtonText {...props} />
     </>
   );
 };
-
-// const ButtonContainer: FC<ButtonProps> = () => {};
 
 const useButtonState = (initialState: boolean) => {
   const [selected, setSelected] = useState<boolean>(initialState);
@@ -60,14 +72,14 @@ const useButtonState = (initialState: boolean) => {
   };
 };
 
-const Button: FC<ButtonProps> = ({ type, ...rest }) => {
+const Button: FC<ButtonProps> = ({ type, classNames, ...rest }) => {
   const color = BUTTON_COLORS[type];
 
   const { selected, toggleSelected } = useButtonState(false);
 
   const className = `flex w-full h-full content-center items-center justify-center rounded-md p-1 text-body-md ${
     color[selected ? 'selected' : 'enabled']
-  }`;
+  } ${classNames}`;
 
   return (
     <button onClick={toggleSelected} className={className}>

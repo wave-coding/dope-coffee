@@ -22,6 +22,7 @@ const RecentOrders: FC<RecentOrdersProps> = ({ cards }) => {
             grabCursor: true,
             style: {
               overflow: 'visible',
+              overflowX: 'unset',
             },
           }}
           hasPaddingBottom={false}

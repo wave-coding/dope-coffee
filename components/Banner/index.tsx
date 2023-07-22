@@ -12,7 +12,7 @@ interface BannerProps {
 
 const Banner: FC<BannerProps> = () => {
   const item = (
-    <div className="bg-color-dark">
+    <div className="rounded-lg bg-color-dark">
       <div
         style={{
           background: `url(/upload-banner.png${''}) no-repeat right`,

@@ -12,25 +12,35 @@ interface BannerProps {
 
 const Banner: FC<BannerProps> = () => {
   const item = (
-    <div className="flex w-full flex-col rounded-lg bg-color-dark px-6 py-4">
-      <header className="mb-3">
-        <h1 className="title text-headline-lg text-white">
-          High protein Lunch
-        </h1>
-      </header>
-      <div className="description mb-3">
-        <span className="text-body-md text-neutral-200">
-          Enjoy your break with <br />
-          these high protein selection
-        </span>
+    <div className="bg-color-dark">
+      <div
+        style={{
+          background: `url(/upload-banner.png${''}) no-repeat right`,
+          backgroundColor: 'transparent',
+          backgroundSize: 'auto 100%',
+        }}
+        className="flex w-full flex-col rounded-lg px-6 py-4"
+      >
+        {/* <Image alt="" width={252} height={290} src={'/upload-banner.png'} /> */}
+        <header className="mb-3">
+          <h1 className="title text-headline-lg text-white">
+            High protein Lunch
+          </h1>
+        </header>
+        <div className="description mb-3">
+          <span className="text-body-md text-neutral-300">
+            Enjoy your break with <br />
+            these high protein selection
+          </span>
+        </div>
+        <Link className="link w-fit" href={''}>
+          <Button
+            classNames="px-4 py-3 text-body-md text-neutral-200"
+            type="primary"
+            text="Check them out"
+          />
+        </Link>
       </div>
-      <Link className="link w-fit" href={''}>
-        <Button
-          classNames="px-4 py-3 text-body-md text-neutral-100"
-          type="primary"
-          text="Check them out"
-        />
-      </Link>
     </div>
   );
 
@@ -39,9 +49,8 @@ const Banner: FC<BannerProps> = () => {
   return (
     <SwiperSlider
       configs={{
-        wrapperClass: 'banner',
-        containerModifierClass: 'banner',
         className: 'banner',
+        grabCursor: true,
       }}
       hasPaddingBottom={true}
       items={items}

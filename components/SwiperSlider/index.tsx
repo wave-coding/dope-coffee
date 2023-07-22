@@ -1,11 +1,12 @@
 'use client';
 import { FC, ReactNode } from 'react';
 import clsx from 'clsx';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperProps } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types';
-import 'swiper/react';
+
+// import css files
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -20,7 +21,7 @@ interface SwiperSliderProps {
 }
 
 const SWIPER_CONFIGS: SwiperConfigs = {
-  modules: [Pagination, Navigation],
+  modules: [Pagination, Navigation, Scrollbar],
   slidesPerView: 1,
   pagination: { clickable: true },
   scrollbar: { draggable: true },

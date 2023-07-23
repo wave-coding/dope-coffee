@@ -178,7 +178,7 @@ const Components: FC = () => {
         </div>
       </div>
       <div className="w-full">
-        <Banner />
+        <Banner title="test" />
       </div>
     </main>
   );

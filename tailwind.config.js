@@ -95,6 +95,7 @@ module.exports = {
           'rgba(var(--color-secondary-light), <alpha-value>)',
         'color-secondary-dark':
           'rgba(var(--color-secondary-dark), <alpha-value>)',
+        'color-dark': 'rgba(var(--color-dark), <alpha-value>)',
       },
     },
   },

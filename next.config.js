@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    // esmExternals: true,
   },
   images: {
     remotePatterns: [

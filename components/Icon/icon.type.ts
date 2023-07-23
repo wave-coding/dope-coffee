@@ -29,6 +29,7 @@ export type IconNames =
   | 'more'
   | 'minus'
   | 'add'
-  | 'filled-star';
+  | 'filled-star'
+  | 'filter';
 
 export type IconRecords = Record<IconNames, Icon>;

@@ -2,9 +2,14 @@ import { Banner } from '@/components';
 
 const HomeBanner = () => {
   return (
-    <div className="home-banner">
-      <div className="w-full">
-        <Banner />
+    <div className="home-banner h-48">
+      <div className="h-full w-full">
+        <Banner
+          title="High protein lunch"
+          // description="simple description"
+          // link="/"
+          // buttonText="check it out"
+        />
       </div>
     </div>
   );

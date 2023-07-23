@@ -17,7 +17,7 @@ export type SwiperConfigs = SwiperProps & SwiperOptions;
 interface SwiperSliderProps {
   items: ReactNode[];
   configs?: SwiperConfigs;
-  hasPaddingBottom?: boolean;
+  className?: string;
 }
 
 const SWIPER_CONFIGS: SwiperConfigs = {
@@ -27,23 +27,17 @@ const SWIPER_CONFIGS: SwiperConfigs = {
   scrollbar: { draggable: true },
 };
 
-const SwiperSlider: FC<SwiperSliderProps> = ({
-  items,
-  configs,
-  hasPaddingBottom = false,
-}) => {
-  const settings = {
+const SwiperSlider: FC<SwiperSliderProps> = ({ items, configs, className }) => {
+  const settings: SwiperConfigs = {
     ...SWIPER_CONFIGS,
     ...configs,
   };
 
-  const className = clsx({
-    'pb-10': hasPaddingBottom,
-  });
+  const classNames = clsx({ 'h-full': true });
 
   return (
-    <div>
-      <Swiper className={className} {...settings}>
+    <div className="h-full">
+      <Swiper className={`${className} ${classNames}`} {...settings}>
         {items.map((item, index) => (
           <SwiperSlide key={index}>{item}</SwiperSlide>
         ))}

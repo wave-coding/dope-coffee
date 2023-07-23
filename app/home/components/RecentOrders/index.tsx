@@ -25,7 +25,6 @@ const RecentOrders: FC<RecentOrdersProps> = ({ cards }) => {
               overflowX: 'unset',
             },
           }}
-          hasPaddingBottom={false}
           items={cards}
         />
       </div>

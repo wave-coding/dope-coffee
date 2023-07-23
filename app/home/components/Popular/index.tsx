@@ -26,7 +26,6 @@ const RecentOrders: FC<RecentOrdersProps> = ({ cards }) => {
               overflow: 'visible',
             },
           }}
-          hasPaddingBottom={false}
           items={cards}
         />
       </div>

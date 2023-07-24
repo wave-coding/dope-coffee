@@ -1,68 +1,46 @@
 'use client';
 import { FC, useState } from 'react';
-import { Icons } from '@/components/';
-import { IconNames } from '../Icon/icon.type';
 import { clsx } from 'clsx';
-import { SetStateAction } from 'react';
-import { Dispatch } from 'react';
+import { Icons } from '@/components/';
+import { NavigationState } from './NavigationBottom.type';
+import {
+  GetNavItemHandlersInput,
+  MenuItemsMapperProps,
+  NavIconProps,
+  NavItemContentProps,
+  NavItemProps,
+  NavItemTitleProps,
+  NavigationItem,
+} from './NavigationBottom.interface';
 
-interface NavigationItem {
-  icon: IconNames;
-  activeIcon: IconNames;
-  title: string;
-}
-
-type NavigationState = {
-  active: NavigationItem | null;
-  hover: NavigationItem | null;
-};
+import Link from 'next/link';
 
 const menuItems: NavigationItem[] = [
   {
     icon: 'home-outline',
     activeIcon: 'home',
     title: 'Home',
+    href: '/home',
   },
   {
     icon: 'location-outline',
     activeIcon: 'location',
     title: 'Location',
+    href: '/location',
   },
   {
     icon: 'shopping-card-outline',
     activeIcon: 'shopping-card',
     title: 'Basket',
+    href: '/basket',
   },
   {
     icon: 'profile-outline',
     activeIcon: 'profile',
     title: 'Profile',
+    href: '/profile',
   },
 ];
-
-interface NavIconProps {
-  activeIcon: IconNames;
-  icon: IconNames;
-  isActive: boolean;
-}
-
-const NavIcon: FC<NavIconProps> = ({ activeIcon, icon, isActive }) => {
-  const Icon = isActive ? Icons[activeIcon] : Icons[icon];
-
-  return (
-    <Icon
-      className={`svg mb-1 fill-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:fill-color-three ${clsx(
-        isActive && 'fill-color-three'
-      )} `}
-    />
-  );
-};
-
-interface GetNavItemHandlersInput {
-  item: NavigationItem;
-  state: NavigationState;
-  stateHandler: Dispatch<SetStateAction<NavigationState>>;
-}
 
 const getNavItemHandlers = ({
   item,
@@ -76,18 +54,17 @@ const getNavItemHandlers = ({
   };
 };
 
-interface NavItemProps {
-  isCurrentItemActive: boolean;
-  isCurrentItemHover: boolean;
-  setState: Dispatch<SetStateAction<NavigationState>>;
-  item: NavigationItem;
-  state: NavigationState;
-}
+const NavIcon: FC<NavIconProps> = ({ activeIcon, icon, isActive }) => {
+  const Icon = isActive ? Icons[activeIcon] : Icons[icon];
 
-interface NavItemTitleProps {
-  isCurrentItemActive: boolean;
-  title: string;
-}
+  return (
+    <Icon
+      className={`svg mb-1 h-1/2 w-1/2 fill-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:fill-color-three ${clsx(
+        isActive && 'fill-color-three'
+      )} `}
+    />
+  );
+};
 
 const NavItemTitle: FC<NavItemTitleProps> = ({
   title,
@@ -96,7 +73,7 @@ const NavItemTitle: FC<NavItemTitleProps> = ({
   return (
     <span
       className={clsx({
-        'text-label-md text-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:text-color-neutral/90':
+        'text-body-lg text-color-neutral/50 transition-all ease-linear hover:transition-all group-hover:text-color-neutral/90':
           true,
         'text-color-neutral/90': isCurrentItemActive,
       })}
@@ -105,12 +82,6 @@ const NavItemTitle: FC<NavItemTitleProps> = ({
     </span>
   );
 };
-
-interface NavItemContentProps {
-  isCurrentItemActive: boolean;
-  isCurrentItemHover: boolean;
-  item: NavigationItem;
-}
 
 const NavItemContent: FC<NavItemContentProps> = ({
   item,
@@ -129,9 +100,9 @@ const NavItemContent: FC<NavItemContentProps> = ({
 
 const NavItemContentContainer: FC<NavItemContentProps> = (props) => {
   return (
-    <div className="flex w-2/5 flex-col items-center">
+    <>
       <NavItemContent {...props} />
-    </div>
+    </>
   );
 };
 
@@ -144,14 +115,15 @@ const NavItem: FC<NavItemProps> = ({
 }) => {
   const handlers = getNavItemHandlers({ item, state, stateHandler: setState });
   return (
-    <div
-      className="group flex w-full flex-col items-center hover:cursor-pointer"
+    <Link
+      className="group inline-flex flex-col items-center justify-center hover:cursor-pointer"
       {...handlers}
+      href={item.href}
     >
       <NavItemContentContainer
         {...{ item, isCurrentItemActive, isCurrentItemHover }}
       />
-    </div>
+    </Link>
   );
 };
 
@@ -170,13 +142,6 @@ const getNavigationBottomState = ({
     isCurrentItemHover,
   };
 };
-
-interface MenuItemsMapperProps {
-  item: NavigationItem;
-  index: number;
-  state: NavigationState;
-  setState: Dispatch<SetStateAction<NavigationState>>;
-}
 
 const menuItemsMapper: FC<MenuItemsMapperProps> = ({
   item,
@@ -205,7 +170,7 @@ const NavigationBottom: FC = () => {
   });
 
   return (
-    <nav className="flex items-baseline justify-around bg-white py-1">
+    <nav className="grid w-full max-w-2xl grid-cols-4">
       {menuItems.map((item, index) =>
         menuItemsMapper({ item, index, state, setState })
       )}

@@ -18,3 +18,5 @@ export { default as FilterChip } from './FilterChip';
 export { default as Button } from './Button';
 export { default as Banner } from './Banner';
 export { default as SwiperSlider } from './SwiperSlider';
+export { default as Arrow } from './Arrow';
+export { default as GoBackTopBar } from './GoBackTopBar';

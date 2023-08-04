@@ -1,4 +1,5 @@
-import { CardMenu, GoBackTopBar } from '@/components';
+import { CardMenu } from '@/components';
+import { GoBackTopBarTitle } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 import { FC } from 'react';
 
@@ -36,6 +37,7 @@ const cardMenuMapper = (item: Product, index: number) => {
     </div>
   );
 };
+
 const Products: FC = () => {
   const products = Array(8).fill(Product);
 
@@ -47,7 +49,7 @@ const Products: FC = () => {
 const TopBar = () => {
   return (
     <div className="mb-5 mt-2">
-      <GoBackTopBar title="High Protein" />
+      <GoBackTopBarTitle title="High Protein" />
     </div>
   );
 };

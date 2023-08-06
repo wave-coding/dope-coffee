@@ -15,7 +15,7 @@ const ArrowSign: FC = () => {
 };
 
 const GoBackTopBar: FC<GoBackTopBarProps> = ({ children, className }) => {
-  const classNames = `relative mb-5 mt-2 flex items-center ${className}`;
+  const classNames = `relative flex items-center ${className}`;
 
   return (
     <div className={classNames}>

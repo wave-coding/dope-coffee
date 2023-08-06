@@ -1,4 +1,4 @@
-import { CardMenu, GoBackTopBar } from '@/components';
+import { CardMenu, GoBackTopBarTitle } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 import { FC } from 'react';
 
@@ -47,7 +47,7 @@ const Products: FC = () => {
 const TopBar = () => {
   return (
     <div className="mb-5 mt-2">
-      <GoBackTopBar title="High Protein" />
+      <GoBackTopBarTitle title="High Protein" />
     </div>
   );
 };

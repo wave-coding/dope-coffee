@@ -20,3 +20,5 @@ export { default as Banner } from './Banner';
 export { default as SwiperSlider } from './SwiperSlider';
 export { default as Arrow } from './Arrow';
 export { default as GoBackTopBar } from './GoBackTopBar';
+export { default as GoBackTopBarTitle } from './GoBackTopBarTitle';
+export { default as GoBackTopBarFilter } from './GoBackTopBarFilter';

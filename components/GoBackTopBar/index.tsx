@@ -1,8 +1,9 @@
+import { FC, ReactNode } from 'react';
 import Arrow from '@/components/Arrow';
-import { FC } from 'react';
 
 interface GoBackTopBarProps {
-  title: string;
+  children: ReactNode;
+  className: string;
 }
 
 const ArrowSign: FC = () => {
@@ -13,15 +14,13 @@ const ArrowSign: FC = () => {
   );
 };
 
-const Title: FC<GoBackTopBarProps> = ({ title }) => {
-  return <h1 className="text-headline-md">{title}</h1>;
-};
+const GoBackTopBar: FC<GoBackTopBarProps> = ({ children, className }) => {
+  const classNames = `relative flex items-center ${className}`;
 
-const GoBackTopBar: FC<GoBackTopBarProps> = (props) => {
   return (
-    <div className="relative mb-5 mt-2 flex items-center justify-center">
+    <div className={classNames}>
       <ArrowSign />
-      <Title {...props} />
+      {children}
     </div>
   );
 };

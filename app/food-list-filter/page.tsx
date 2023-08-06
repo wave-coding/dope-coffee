@@ -1,4 +1,4 @@
-import { CardMenu, GoBackTopBarTitle } from '@/components';
+import { CardMenu, GoBackTopBarFilter } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 import { FC } from 'react';
 
@@ -36,6 +36,7 @@ const cardMenuMapper = (item: Product, index: number) => {
     </div>
   );
 };
+
 const Products: FC = () => {
   const products = Array(8).fill(Product);
 
@@ -46,11 +47,12 @@ const Products: FC = () => {
 
 const TopBar = () => {
   return (
-    <div className="mb-5 mt-2">
-      <GoBackTopBarTitle title="High Protein" />
+    <div className="mb-8 mt-7">
+      <GoBackTopBarFilter href="/" />
     </div>
   );
 };
+
 const getHome = () => {
   return (
     <>

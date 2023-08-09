@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { IconButton } from '@/components';
+import { GoBackButton } from '@/components';
 
 interface GoBackTopBarProps {
   children: ReactNode;
@@ -9,7 +9,7 @@ interface GoBackTopBarProps {
 const IconSign: FC = () => {
   return (
     <div className="absolute left-0">
-      <IconButton href="/" iconName="arrow-left" classNames="bg-white" />
+      <GoBackButton href="/" iconName="arrow-left" classNames="bg-white" />
     </div>
   );
 };

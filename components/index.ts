@@ -22,3 +22,4 @@ export { default as IconButton } from './IconButton';
 export { default as GoBackTopBar } from './GoBackTopBar';
 export { default as GoBackTopBarTitle } from './GoBackTopBarTitle';
 export { default as GoBackTopBarFilter } from './GoBackTopBarFilter';
+export { default as GoBackButton } from './GoBackButton';

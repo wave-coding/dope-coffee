@@ -1,13 +1,14 @@
 'use client';
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import Image from 'next/image';
 import { Frame, AddCard } from '@/components';
 import { Product } from '@/interfaces/share.interface';
 import { calculateSumOfMacros, getWidthPercentageString } from '@/utils';
 import { MacrosType } from '@/types';
 import { COLOR_VARIANTS } from '@/shared';
+import clsx from 'clsx';
 
-interface CardMenuProps {
+interface CardMenuProps extends HTMLAttributes<HTMLDivElement> {
   product: Product;
   quantity: number;
 }
@@ -177,8 +178,13 @@ const CardMenuDetailsContainer: FC<CardMenuProps> = (props) => {
   );
 };
 
-const CardMenu: FC<CardMenuProps> = (props) => (
-  <div className="flex w-auto overflow-hidden rounded-md border border-color-border bg-white pr-2 text-color-neutral/90">
+const CardMenu: FC<CardMenuProps> = ({ className, ...props }) => (
+  <div
+    className={clsx(
+      'flex w-auto overflow-hidden rounded-md border border-color-border bg-white pr-2 text-color-neutral/90',
+      className
+    )}
+  >
     <CardMenuImageBoxContainer {...props?.product} />
     <CardMenuDetailsContainer {...props} />
   </div>

@@ -1,10 +1,20 @@
 import Image from 'next/image';
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import CardDetails from './components/CardDetails';
+import clsx from 'clsx';
 
-const Card: FC = () => {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  image?: string;
+}
+
+const Card: FC<CardProps> = ({ className }) => {
   return (
-    <div className="flex w-auto flex-col overflow-hidden rounded-md bg-color-six">
+    <div
+      className={clsx(
+        'flex w-auto flex-col overflow-hidden rounded-md bg-color-six',
+        className
+      )}
+    >
       <Image
         className="w-auto"
         src="https://cdn.pixabay.com/photo/2021/07/19/16/04/pizza-6478478_1280.jpg"

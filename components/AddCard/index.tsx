@@ -1,14 +1,15 @@
 'use client';
-import { FC, useState } from 'react';
+import { FC, HTMLAttributes, useState } from 'react';
 import { handlerType } from '@/types';
 import Icons from '@/components/Icon';
+import clsx from 'clsx';
 
 type UseQuantityType = (initialValue: number) => {
   quantityValue: number;
   handleIncrease: () => void;
   handleDecrease: () => void;
 };
-interface CardBasketQuantityItemsProps {
+interface CardBasketQuantityItemsProps extends HTMLAttributes<HTMLDivElement> {
   increaseHandler: handlerType;
   decreaseHandler: handlerType;
   quantity: number;
@@ -66,9 +67,12 @@ const AddCardQuantityItems: FC<CardBasketQuantityItemsProps> = ({
   );
 };
 
-const AddCardContainer: FC<CardBasketQuantityItemsProps> = (props) => {
+const AddCardContainer: FC<CardBasketQuantityItemsProps> = ({
+  className,
+  ...props
+}) => {
   return (
-    <div className="flex w-full items-center">
+    <div className={clsx('flex w-full items-center', className && className)}>
       <AddCardQuantityItems {...props} />
     </div>
   );
@@ -94,9 +98,9 @@ const useQuantity: UseQuantityType = (initialValue: number) => {
   };
 };
 
-const AddCard: FC<Pick<CardBasketQuantityItemsProps, 'quantity'>> = ({
-  quantity = 1,
-}) => {
+const AddCard: FC<
+  Pick<CardBasketQuantityItemsProps, 'quantity' | 'className'>
+> = ({ quantity = 1, className }) => {
   const { quantityValue, handleDecrease, handleIncrease } =
     useQuantity(quantity);
 
@@ -105,6 +109,7 @@ const AddCard: FC<Pick<CardBasketQuantityItemsProps, 'quantity'>> = ({
       quantity={quantityValue}
       decreaseHandler={handleDecrease}
       increaseHandler={handleIncrease}
+      className={clsx(className)}
     />
   );
 };

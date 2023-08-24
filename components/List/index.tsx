@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import Icons from '@/components/Icon';
 import { getStrokeAndFillColors } from '@/utils';
+import clsx from 'clsx';
 
-interface AccordionProps {
+interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
   name: string;
   viewBox?: string;
 }
@@ -52,9 +53,14 @@ const AccordionDetailsContainer: FC<AccordionProps> = (props) => {
   );
 };
 
-const Accordion: FC<AccordionProps> = (props) => {
+const Accordion: FC<AccordionProps> = ({ className, ...props }) => {
   return (
-    <div className="flex flex-row items-center justify-between rounded-md border px-2 py-0.5">
+    <div
+      className={clsx(
+        'flex flex-row items-center justify-between rounded-md border px-2 py-0.5',
+        className
+      )}
+    >
       <AccordionDetailsContainer {...props} />
     </div>
   );

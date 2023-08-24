@@ -33,11 +33,9 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ items, configs, className }) => {
     ...configs,
   };
 
-  const classNames = clsx({ 'h-full': true });
-
   return (
     <div className="h-full">
-      <Swiper className={`${className} ${classNames}`} {...settings}>
+      <Swiper className={clsx('h-full', className)} {...settings}>
         {items.map((item, index) => (
           <SwiperSlide key={index}>{item}</SwiperSlide>
         ))}

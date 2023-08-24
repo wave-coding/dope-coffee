@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import { clsx } from 'clsx';
 import { ChipFunc, ChipRecords } from './Chip.type';
 import { Icon } from '@/components/Icon/icon.type';
@@ -6,7 +6,7 @@ import Icons from '@/components/Icon';
 import { COLOR_VARIANTS } from '@/shared';
 import { IntensityType, MacroType } from '@/types';
 
-export interface ChipProps {
+export interface ChipProps extends HTMLAttributes<HTMLButtonElement> {
   type: MacroType;
   intensity?: IntensityType | null;
 }
@@ -54,11 +54,11 @@ const ChipContent: FC<ChipProps> = (props) => {
   );
 };
 
-const ChipContainer: FC<ChipProps> = ({ type, intensity }) => {
+const ChipContainer: FC<ChipProps> = ({ type, intensity, className }) => {
   const buttonClass = `${COLOR_VARIANTS[type]} py-0.5 inline-flex items-center rounded-md px-2 text-white`;
 
   return (
-    <button className={buttonClass}>
+    <button className={clsx(buttonClass, className)}>
       <ChipContent {...{ intensity, type }} />
     </button>
   );

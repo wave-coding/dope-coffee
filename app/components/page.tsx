@@ -140,7 +140,7 @@ const Components: FC = () => {
         </div>
         <div className="bg-white p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">Accordion</h1>
-          <Accordion name={'zoheir'} isActive={false} />
+          <Accordion className="test" name={'zoheir'} isActive={false} />
         </div>
         <div className="bg-white p-1 [&>*]:mt-1">
           <h1 className="p-2 text-body-lg text-color-two">List</h1>

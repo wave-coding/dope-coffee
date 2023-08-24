@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import Button from '../Button';
 import SwiperSlider from '../SwiperSlider';
 import Link from 'next/link';
+import clsx from 'clsx';
 
-interface BannerProps {
+interface BannerProps extends HTMLAttributes<HTMLDivElement> {
   image?: string;
   title: string;
   description?: string;
@@ -17,6 +18,7 @@ const Banner: FC<BannerProps> = ({
   description,
   link,
   buttonText,
+  className,
 }) => {
   const item = (
     <div className="h-full rounded-lg bg-color-dark">
@@ -62,7 +64,7 @@ const Banner: FC<BannerProps> = ({
     <SwiperSlider
       className="h-full min-h-full"
       configs={{
-        className: 'banner h-full',
+        className: clsx('banner h-full', className),
         grabCursor: true,
         autoplay: {
           delay: 200,

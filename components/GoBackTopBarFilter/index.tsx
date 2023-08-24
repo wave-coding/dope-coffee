@@ -1,11 +1,15 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import GoBackTopBar from '@/components/GoBackTopBar';
 import Button from '../Button';
+import clsx from 'clsx';
 
-interface GoBackTopBarFilterProps {
+interface GoBackTopBarFilterProps extends HTMLAttributes<HTMLDivElement> {
   href: string;
 }
-const GoBackTopBarFilter: FC<GoBackTopBarFilterProps> = ({ href }) => {
+const GoBackTopBarFilter: FC<GoBackTopBarFilterProps> = ({
+  className,
+  href,
+}) => {
   const children = (
     <div className="z-10 flex h-max w-1/5">
       <Button
@@ -18,9 +22,11 @@ const GoBackTopBarFilter: FC<GoBackTopBarFilterProps> = ({ href }) => {
     </div>
   );
 
-  const className = 'justify-end';
-
-  return <GoBackTopBar className={className}>{children}</GoBackTopBar>;
+  return (
+    <GoBackTopBar className={clsx('justify-end', className)}>
+      {children}
+    </GoBackTopBar>
+  );
 };
 
 export default GoBackTopBarFilter;

@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import { ChipMicroType } from '@/types';
 import CardDetailsMacros from '@/components/Card/components/CardDetails/components/CardDetailsMacros';
 import Icons from '../Icon';
+import clsx from 'clsx';
 
-interface CardRestaurantLocationProps {
+interface CardRestaurantLocationProps extends HTMLAttributes<HTMLDivElement> {
   name: string;
   type: string; // asian, european, american, ...
   score: number;
@@ -119,9 +120,17 @@ const CardRestaurantLocationDetails: FC<CardRestaurantLocationProps> = ({
   );
 };
 
-const CardRestaurantLocation: FC<CardRestaurantLocationProps> = (props) => {
+const CardRestaurantLocation: FC<CardRestaurantLocationProps> = ({
+  className,
+  ...props
+}) => {
   return (
-    <div className="flex w-auto flex-col overflow-hidden rounded-md bg-color-three p-2 pl-3 text-white shadow-sm shadow-color-neutral/20">
+    <div
+      className={clsx(
+        'flex w-auto flex-col overflow-hidden rounded-md bg-color-three p-2 pl-3 text-white shadow-sm shadow-color-neutral/20',
+        className
+      )}
+    >
       <CardRestaurantLocationDetails {...props} />
     </div>
   );

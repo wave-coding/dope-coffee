@@ -1,12 +1,13 @@
 'use client';
-import { FC, useState } from 'react';
+import { FC, HTMLAttributes, useState } from 'react';
 import Icons from '@/components/Icon';
+import clsx from 'clsx';
 
-interface SelectProps {
+interface SelectProps extends HTMLAttributes<HTMLDivElement> {
   options: string[];
 }
 
-const Select: FC<SelectProps> = ({ options }) => {
+const Select: FC<SelectProps> = ({ options, className }) => {
   const Icon = Icons['filled-star'];
   const [selectedItem, setSelectedItem] = useState('Select...');
   const [showDropDown, setShowDropDown] = useState(false);
@@ -16,7 +17,10 @@ const Select: FC<SelectProps> = ({ options }) => {
         onClick={() => {
           setShowDropDown(!showDropDown);
         }}
-        className="flex h-full items-center justify-between overflow-hidden rounded-md bg-white px-2 text-gray-400"
+        className={clsx(
+          'flex h-full items-center justify-between overflow-hidden rounded-md bg-white px-2 text-gray-400',
+          className
+        )}
       >
         <div className="w-full appearance-none  px-3 py-3 text-body-md leading-tight text-color-neutral/90 focus:bg-white focus:outline-none active:outline-none">
           {selectedItem}

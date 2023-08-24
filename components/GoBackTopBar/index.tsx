@@ -9,7 +9,7 @@ interface GoBackTopBarProps {
 const IconSign: FC = () => {
   return (
     <div className="absolute left-0">
-      <GoBackButton href="/" iconName="arrow-left" classNames="bg-white" />
+      <GoBackButton href="/" iconName="arrow-left" className="bg-white" />
     </div>
   );
 };

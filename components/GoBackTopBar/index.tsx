@@ -1,15 +1,15 @@
 import { FC, ReactNode } from 'react';
-import Arrow from '@/components/Arrow';
+import { GoBackButton } from '@/components';
 
 interface GoBackTopBarProps {
   children: ReactNode;
   className: string;
 }
 
-const ArrowSign: FC = () => {
+const IconSign: FC = () => {
   return (
     <div className="absolute left-0">
-      <Arrow href="/" type="arrow-left" classNames="bg-white" />
+      <GoBackButton href="/" iconName="arrow-left" className="bg-white" />
     </div>
   );
 };
@@ -19,7 +19,7 @@ const GoBackTopBar: FC<GoBackTopBarProps> = ({ children, className }) => {
 
   return (
     <div className={classNames}>
-      <ArrowSign />
+      <IconSign />
       {children}
     </div>
   );

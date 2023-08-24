@@ -1,10 +1,11 @@
 'use client';
 import Image from 'next/image';
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import AddCard from '@/components/AddCard';
 import { Product } from '@/interfaces/share.interface';
+import clsx from 'clsx';
 
-interface CardBasketProps {
+interface CardBasketProps extends HTMLAttributes<HTMLDivElement> {
   product: Pick<Product, 'image' | 'name' | 'price'>;
   quantity: number;
 }
@@ -39,9 +40,18 @@ const CardBasketProductDetails: FC<Pick<CardBasketProps, 'product'>> = ({
   );
 };
 
-const CardBasket: FC<CardBasketProps> = ({ product, quantity = 1 }) => {
+const CardBasket: FC<CardBasketProps> = ({
+  product,
+  quantity = 1,
+  className,
+}) => {
   return (
-    <div className="flex w-auto items-center justify-between overflow-hidden rounded-md bg-white pr-2 text-color-neutral/90">
+    <div
+      className={clsx(
+        'flex w-auto items-center justify-between overflow-hidden rounded-md bg-white pr-2 text-color-neutral/90',
+        className
+      )}
+    >
       <CardBasketImageBox product={product} />
       <CardBasketProductDetails product={product} />
       <div className="w-1/4">

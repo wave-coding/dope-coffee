@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import Icons from '../Icon';
 import { getStrokeAndFillColors } from '@/utils';
+import clsx from 'clsx';
 
-interface CardDeliverProps {
+interface CardDeliverProps extends HTMLAttributes<HTMLDivElement> {
   fullName: string;
   phone: string;
   address: string;
@@ -70,9 +71,14 @@ const CardDeliverStarContainer: FC<Pick<CardDeliverProps, 'isActive'>> = (
   );
 };
 
-const CardDeliver: FC<CardDeliverProps> = (props) => {
+const CardDeliver: FC<CardDeliverProps> = ({ className, ...props }) => {
   return (
-    <div className="flex flex-row rounded-md  py-3 shadow-sm shadow-color-neutral/20">
+    <div
+      className={clsx(
+        'flex flex-row rounded-md  py-3 shadow-sm shadow-color-neutral/20',
+        className
+      )}
+    >
       <CardDeliverStarContainer {...props} />
       <CardDeliverDetailsContainer {...props} />
     </div>

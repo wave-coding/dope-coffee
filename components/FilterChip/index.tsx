@@ -29,9 +29,9 @@ const useEnable: UseEnableType = (defaultValue: boolean) => {
   };
 };
 
-const FilterChipContainer: FC<ChipMicroType> = (props) => {
+const FilterChipContainer: FC<ChipMicroType> = ({ className, ...props }) => {
   const { enabled, toggleEnabled } = useEnable(false);
-  const className = clsx(
+  const classNames = clsx(
     'mr-1',
     'cursor-pointer',
     'justify-center',
@@ -40,14 +40,12 @@ const FilterChipContainer: FC<ChipMicroType> = (props) => {
     'border-color-neutral/5',
     'p-2',
     'text-neutral-800',
-    {
-      'border-color-three': enabled,
-      'bg-white': enabled,
-    }
+    enabled && 'border-color-three bg-white',
+    className
   );
 
   return (
-    <div onClick={toggleEnabled} className={className}>
+    <div onClick={toggleEnabled} className={classNames}>
       <FilterChipText {...props} />
     </div>
   );

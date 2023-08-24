@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import { MacrosType } from '@/types';
 import { COLOR_VARIANTS } from '@/shared';
 import { calculateSumOfMacros, getWidthPercentageString } from '@/utils';
+import clsx from 'clsx';
 
-export interface FrameProps {
+export interface FrameProps extends HTMLAttributes<HTMLDivElement> {
   macros: MacrosType[];
 }
 
@@ -27,11 +28,11 @@ const makeFrameList = ({
   );
 };
 
-const Frame: FC<FrameProps> = ({ macros = [] }) => {
+const Frame: FC<FrameProps> = ({ macros = [], className }) => {
   const total = calculateSumOfMacros(macros);
 
   return (
-    <div className="inline-flex w-full">
+    <div className={clsx('inline-flex w-full', className)}>
       {macros.map((macro, key) => makeFrameList({ ...macro, total, key }))}
     </div>
   );

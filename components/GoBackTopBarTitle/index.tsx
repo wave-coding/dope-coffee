@@ -1,18 +1,25 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import GoBackTopBar from '@/components/GoBackTopBar';
+import clsx from 'clsx';
 
-interface GoBackTopBarTitleProps {
+interface GoBackTopBarTitleProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
 }
 const Title: FC<GoBackTopBarTitleProps> = ({ title }) => {
   return <h1 className="text-headline-md">{title}</h1>;
 };
 
-const GoBackTopBarTitle: FC<GoBackTopBarTitleProps> = (props) => {
+const GoBackTopBarTitle: FC<GoBackTopBarTitleProps> = ({
+  className,
+  ...props
+}) => {
   const children = <Title {...props} />;
-  const className = 'justify-center';
 
-  return <GoBackTopBar className={className}>{children}</GoBackTopBar>;
+  return (
+    <GoBackTopBar className={clsx('justify-center', className)}>
+      {children}
+    </GoBackTopBar>
+  );
 };
 
 export default GoBackTopBarTitle;

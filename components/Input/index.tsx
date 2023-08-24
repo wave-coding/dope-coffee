@@ -1,8 +1,15 @@
 'use client';
-import { ChangeEvent, ChangeEventHandler, FC, useState } from 'react';
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  FC,
+  HTMLAttributes,
+  useState,
+} from 'react';
 import Icons from '@/components/Icon';
+import clsx from 'clsx';
 
-interface InputFieldProps {
+interface InputFieldProps extends HTMLAttributes<HTMLInputElement> {
   handler: (e: ChangeEvent<HTMLInputElement>) => void;
   input: string;
   placeHolder?: string;
@@ -20,12 +27,20 @@ interface InputContainerProps {
   placeHolder?: string;
 }
 
-const InputField: FC<InputFieldProps> = ({ handler, input, placeHolder }) => {
+const InputField: FC<InputFieldProps> = ({
+  handler,
+  input,
+  placeHolder,
+  className,
+}) => {
   return (
     <input
       name="input"
       onChange={handler}
-      className="w-full appearance-none px-3 py-2 text-body-md leading-tight text-color-neutral/90 focus:bg-white focus:outline-none active:outline-none"
+      className={clsx(
+        'w-full appearance-none px-3 py-2 text-body-md leading-tight text-color-neutral/90 focus:bg-white focus:outline-none active:outline-none',
+        className
+      )}
       value={input}
       placeholder={placeHolder}
     />
@@ -91,7 +106,7 @@ const useInput: UseInputType = (defaultValue: string) => {
   };
 };
 
-interface InputProps {
+interface InputProps extends HTMLAttributes<HTMLInputElement> {
   placeHolder?: string;
 }
 
